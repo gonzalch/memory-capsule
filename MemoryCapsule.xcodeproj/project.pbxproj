@@ -60,8 +60,8 @@
 		EA683A2B16EFF3D8000BF949 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EA683A2D16EFF3E2000BF949 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EA683A2F16EFF3EB000BF949 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		EA683A3116F004C2000BF949 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EA683A3216F004C2000BF949 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EA683A3116F004C2000BF949 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = MemoryCapsule/LoginViewController.h; sourceTree = "<group>"; };
+		EA683A3216F004C2000BF949 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = MemoryCapsule/LoginViewController.m; sourceTree = "<group>"; };
 		EA683A3D16F01989000BF949 /* full_jar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_jar.png; sourceTree = "<group>"; };
 		EA683A3E16F01989000BF949 /* login1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +93,7 @@
 		EA36396B16E84F3900970068 = {
 			isa = PBXGroup;
 			children = (
+				EA683A4116F058FD000BF949 /* Login */,
 				EA36397D16E84F3900970068 /* MemoryCapsule */,
 				EA36397616E84F3900970068 /* Frameworks */,
 				EA36397516E84F3900970068 /* Products */,
@@ -135,9 +136,7 @@
 				EA36398F16E84F3900970068 /* MainStoryboard.storyboard */,
 				EA36399216E84F3900970068 /* ViewController.h */,
 				EA36399316E84F3900970068 /* ViewController.m */,
-				EA683A3116F004C2000BF949 /* LoginViewController.h */,
-				EA683A3216F004C2000BF949 /* LoginViewController.m */,
-				EA683A3616F00580000BF949 /* images */,
+				EA683A3616F00580000BF949 /* Images */,
 				EA36397E16E84F3900970068 /* Supporting Files */,
 			);
 			path = MemoryCapsule;
@@ -157,13 +156,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EA683A3616F00580000BF949 /* images */ = {
+		EA683A3616F00580000BF949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				EA683A3D16F01989000BF949 /* full_jar.png */,
 				EA683A3E16F01989000BF949 /* login1.png */,
 			);
-			name = images;
+			name = Images;
+			sourceTree = "<group>";
+		};
+		EA683A4116F058FD000BF949 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EA683A3116F004C2000BF949 /* LoginViewController.h */,
+				EA683A3216F004C2000BF949 /* LoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

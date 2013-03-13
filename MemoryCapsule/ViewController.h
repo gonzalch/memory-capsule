@@ -11,4 +11,8 @@
 
 @interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
+
+
 @end

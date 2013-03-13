@@ -16,6 +16,9 @@
 
 @implementation ViewController
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,23 +35,40 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
+    NSLog(@"Calling viewDidAppear");
     [super viewDidAppear:animated];
     
-    //Check if current user is logged in
-    if([PFUser currentUser]){
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"logged in!" message:@"You are logged in!" delegate:nil cancelButtonTitle:@"Log me out" otherButtonTitles:nil, nil];
-        [alert show];
-        [PFUser logOut];
+    
+    
+    //HomeView
+    if([self.title isEqual: @"homeViewController"]){
+        NSLog(@"HomeViewController");
+        //[self.messageLabel
     }
     
     
-    // Login
-    LoginViewController * login = [[LoginViewController alloc ]init];
-    //PFLogInViewController * login = [[PFLogInViewController alloc]init];
-    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton;
-    login.delegate = self;
-    login.signUpController.delegate = self;
-    [self presentModalViewController:login animated: YES];
+    //If the user is already logged in
+    if([PFUser currentUser]){
+        PFUser * currentUser = [PFUser currentUser];
+
+        //NSLog(@"Current user: %@", [PFUser currentUser]);
+        [self.messageLabel setText:[NSString stringWithFormat:@"Welcome, %@", [currentUser username]]];
+        
+    }
+    
+    
+    // If the user is not logged in
+    if(![PFUser currentUser]){
+        // Login
+        LoginViewController * login = [[LoginViewController alloc ]init];
+        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+        login.delegate = self;
+        login.signUpController.delegate = self;
+        [self presentViewController:login animated:YES completion:NULL];
+    }
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +85,9 @@
 // Upon user login, dismiss the login menu
 -(void) logInViewController: (PFLogInViewController *)  logInController didLogInUser:(PFUser *)user
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    NSLog(@"Calling didLogInUser");
+    
 
 }
 
@@ -83,5 +105,6 @@
 -(void) signUpViewControllerDidCancelLogin: (PFSignUpViewController *) signupController{
     [self dismissModalViewControllerAnimated:YES];
 }
- 
+
+
 @end

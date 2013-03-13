@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import "Parse/Parse.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : PFLogInViewController  <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
 
 @end

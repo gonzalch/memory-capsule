@@ -31,6 +31,7 @@
 		EA683A3316F004C2000BF949 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA683A3216F004C2000BF949 /* LoginViewController.m */; };
 		EA683A3F16F01989000BF949 /* full_jar.png in Resources */ = {isa = PBXBuildFile; fileRef = EA683A3D16F01989000BF949 /* full_jar.png */; };
 		EA683A4016F01989000BF949 /* login1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA683A3E16F01989000BF949 /* login1.png */; };
+		EA683A9416F184AB000BF949 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA683A9316F184AB000BF949 /* HomeNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		EA683A3216F004C2000BF949 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = MemoryCapsule/LoginViewController.m; sourceTree = "<group>"; };
 		EA683A3D16F01989000BF949 /* full_jar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_jar.png; sourceTree = "<group>"; };
 		EA683A3E16F01989000BF949 /* login1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login1.png; sourceTree = "<group>"; };
+		EA683A9216F184AB000BF949 /* HomeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeNavigationController.h; path = MemoryCapsule/HomeNavigationController.h; sourceTree = "<group>"; };
+		EA683A9316F184AB000BF949 /* HomeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeNavigationController.m; path = MemoryCapsule/HomeNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,10 @@
 		EA36396B16E84F3900970068 = {
 			isa = PBXGroup;
 			children = (
+				EA683A9716F1962F000BF949 /* Documentation */,
+				EA683A9616F19624000BF949 /* Friends */,
+				EA683A9516F1961D000BF949 /* Capsule */,
+				EA683A8E16F17FE4000BF949 /* Home */,
 				EA683A4116F058FD000BF949 /* Login */,
 				EA36397D16E84F3900970068 /* MemoryCapsule */,
 				EA36397616E84F3900970068 /* Frameworks */,
@@ -174,6 +181,36 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		EA683A8E16F17FE4000BF949 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EA683A9216F184AB000BF949 /* HomeNavigationController.h */,
+				EA683A9316F184AB000BF949 /* HomeNavigationController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		EA683A9516F1961D000BF949 /* Capsule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Capsule;
+			sourceTree = "<group>";
+		};
+		EA683A9616F19624000BF949 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		EA683A9716F1962F000BF949 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +283,7 @@
 				EA36398816E84F3900970068 /* AppDelegate.m in Sources */,
 				EA36399416E84F3900970068 /* ViewController.m in Sources */,
 				EA683A3316F004C2000BF949 /* LoginViewController.m in Sources */,
+				EA683A9416F184AB000BF949 /* HomeNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

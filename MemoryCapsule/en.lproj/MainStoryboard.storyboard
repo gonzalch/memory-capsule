@@ -9,17 +9,12 @@
             <objects>
                 <viewController title="HomeViewController" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJ3-zG-ZvY">
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klT-ro-koE">
-                                        <items>
-                                            <navigationItem title="Home" id="lqX-wy-vS8"/>
-                                        </items>
-                                    </navigationBar>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7W-f7-JAd">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7W-f7-JAd">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="9ag-bp-AVR"/>
                                         </constraints>
@@ -31,11 +26,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="V7W-f7-JAd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2Uj-qy-4BW"/>
-                                    <constraint firstItem="V7W-f7-JAd" firstAttribute="top" secondItem="aJ3-zG-ZvY" secondAttribute="top" constant="54" id="AcN-p8-KtB"/>
-                                    <constraint firstItem="klT-ro-koE" firstAttribute="trailing" secondItem="aJ3-zG-ZvY" secondAttribute="trailing" type="default" id="EQd-yJ-LHp"/>
-                                    <constraint firstItem="klT-ro-koE" firstAttribute="leading" secondItem="aJ3-zG-ZvY" secondAttribute="leading" type="default" id="YZ1-lC-5Se"/>
+                                    <constraint firstItem="V7W-f7-JAd" firstAttribute="top" secondItem="aJ3-zG-ZvY" secondAttribute="top" constant="7" id="EW9-Uy-3AQ"/>
                                     <constraint firstItem="V7W-f7-JAd" firstAttribute="leading" secondItem="aJ3-zG-ZvY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cDi-TF-oIc"/>
-                                    <constraint firstItem="klT-ro-koE" firstAttribute="top" secondItem="aJ3-zG-ZvY" secondAttribute="top" type="default" id="oAg-rw-RVZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -47,7 +39,7 @@
                             <constraint firstItem="aJ3-zG-ZvY" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pML-L3-i5d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="c5i-uB-KPP"/>
+                    <navigationItem key="navigationItem" title="Home" id="Rna-Jl-JZ2"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="messageLabel" destination="V7W-f7-JAd" id="N2K-8T-mYO"/>
@@ -55,66 +47,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="392"/>
+            <point key="canvasLocation" x="292" y="-576"/>
         </scene>
         <!--View Controller - CapsulesViewController-->
         <scene sceneID="Qfi-QF-Ywd">
             <objects>
                 <viewController title="CapsulesViewController" id="2me-tg-R7L" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HDn-hr-53Y">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODu-ff-Chh">
-                                <items>
-                                    <navigationItem title="Capsules" id="AX2-Rb-d1p"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ODu-ff-Chh" firstAttribute="top" secondItem="HDn-hr-53Y" secondAttribute="top" type="default" id="0UM-Ab-43L"/>
-                            <constraint firstItem="ODu-ff-Chh" firstAttribute="trailing" secondItem="HDn-hr-53Y" secondAttribute="trailing" type="default" id="2xX-bk-UnE"/>
-                            <constraint firstItem="ODu-ff-Chh" firstAttribute="leading" secondItem="HDn-hr-53Y" secondAttribute="leading" type="default" id="mo0-wy-JsE"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Capsules" id="5SL-1u-J6C"/>
+                    <navigationItem key="navigationItem" title="Memory Capsules" id="sLb-gK-XDb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCw-Te-6xV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226" y="-339"/>
+            <point key="canvasLocation" x="292" y="28"/>
         </scene>
         <!--View Controller - FriendsViewController-->
         <scene sceneID="awi-0F-WS5">
             <objects>
                 <viewController title="FriendsViewController" id="3qi-8T-Sdk" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYV-sT-NIR">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-VU-byb">
-                                <items>
-                                    <navigationItem title="Friends" id="eYO-kl-LP1"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="H1y-VU-byb" firstAttribute="top" secondItem="oYV-sT-NIR" secondAttribute="top" type="default" id="FAU-1E-grz"/>
-                            <constraint firstItem="H1y-VU-byb" firstAttribute="trailing" secondItem="oYV-sT-NIR" secondAttribute="trailing" type="default" id="OoR-Ju-3TY"/>
-                            <constraint firstItem="H1y-VU-byb" firstAttribute="leading" secondItem="oYV-sT-NIR" secondAttribute="leading" type="default" id="Q62-Gb-KZT"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="OiI-iu-qBf"/>
+                    <navigationItem key="navigationItem" title="Friends" id="Nxv-zc-Yve"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2x2-7J-Rk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229" y="24"/>
+            <point key="canvasLocation" x="292" y="668"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - tabBarController-->
         <scene sceneID="Do2-cS-7Av">
             <objects>
-                <tabBarController id="dda-KJ-ha1" sceneMemberID="viewController">
+                <tabBarController title="tabBarController" id="dda-KJ-ha1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ry8-W7-q62">
@@ -122,16 +90,92 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="G7N-MF-Vdb"/>
-                        <segue destination="2me-tg-R7L" kind="relationship" relationship="viewControllers" id="HPV-Au-TNd"/>
-                        <segue destination="3qi-8T-Sdk" kind="relationship" relationship="viewControllers" id="Nhw-Hf-w2V"/>
+                        <segue destination="Fq8-JE-Qgl" kind="relationship" relationship="viewControllers" id="G7N-MF-Vdb"/>
+                        <segue destination="tvd-SY-FmP" kind="relationship" relationship="viewControllers" id="HPV-Au-TNd"/>
+                        <segue destination="DA0-XR-pak" kind="relationship" relationship="viewControllers" id="Nhw-Hf-w2V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8r-Ju-dNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-771" y="40"/>
         </scene>
+        <!--Home Navigation Controller - homeNavigationController-->
+        <scene sceneID="Ogt-7e-BnJ">
+            <objects>
+                <navigationController title="homeNavigationController" id="Fq8-JE-Qgl" customClass="HomeNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="c5i-uB-KPP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oup-22-iqI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="t52-Rb-lkX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2R-UV-igk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="-576"/>
+        </scene>
+        <!--Navigation Controller - FriendsNavigationController-->
+        <scene sceneID="Zla-ZP-FQs">
+            <objects>
+                <navigationController title="FriendsNavigationController" id="DA0-XR-pak" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" id="OiI-iu-qBf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cgp-gn-2HB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3qi-8T-Sdk" kind="relationship" relationship="rootViewController" id="fST-qu-BVE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCw-cF-JmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="668"/>
+        </scene>
+        <!--Navigation Controller - CapsulesNavigationController-->
+        <scene sceneID="9Io-lb-gcQ">
+            <objects>
+                <navigationController title="CapsulesNavigationController" id="tvd-SY-FmP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Capsules" id="5SL-1u-J6C"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Va5-rn-Zqt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2me-tg-R7L" kind="relationship" relationship="rootViewController" id="sCI-Yj-gp9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djO-Gj-THE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="28"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="HomeNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeNavigationController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonPressed:"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
+    IBOutlet UIBarButtonItem * logoutButton;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (nonatomic, retain) UIBarButtonItem * logoutButton;
 
+
+-(IBAction)logoutButtonPressed:(id)sender;
 
 
 @end

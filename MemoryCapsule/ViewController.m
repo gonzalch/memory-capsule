@@ -10,12 +10,13 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 
-@interface ViewController ()
 
+
+@interface ViewController ()
 @end
 
 @implementation ViewController
-
+@synthesize logoutButton = _logoutButton;
 
 
 
@@ -25,6 +26,9 @@
     
     
     
+    //Add logout button
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logout"style:UIBarButtonItemStyleDone target:self action:@selector(logoutButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     
     //PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
@@ -35,29 +39,20 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    NSLog(@"Calling viewDidAppear");
+    NSLog(@"TabViewController: %@", self.title);
     [super viewDidAppear:animated];
     
     
     
-    //HomeView
-    if([self.title isEqual: @"homeViewController"]){
-        NSLog(@"HomeViewController");
-        //[self.messageLabel
-    }
-    
-    
-    //If the user is already logged in
+    // Set userName label
     if([PFUser currentUser]){
         PFUser * currentUser = [PFUser currentUser];
-
-        //NSLog(@"Current user: %@", [PFUser currentUser]);
-        [self.messageLabel setText:[NSString stringWithFormat:@"Welcome, %@", [currentUser username]]];
+        [self.messageLabel setText:[NSString stringWithFormat:@"%@", [currentUser username]]];
         
     }
     
     
-    // If the user is not logged in
+    // If the user is not logged in, we need to send him back to the login screen
     if(![PFUser currentUser]){
         // Login
         LoginViewController * login = [[LoginViewController alloc ]init];
@@ -67,9 +62,55 @@
         [self presentViewController:login animated:YES completion:NULL];
     }
 
-
+    
+    
+    
     
 }
+
+
+
+
+
+-(IBAction)logoutButtonPressed:(id)sender{
+    NSLog(@"logout is pressed!");
+    // Login
+    LoginViewController * login = [[LoginViewController alloc ]init];
+    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+    login.delegate = self;
+    login.signUpController.delegate = self;
+    [self presentViewController:login animated:YES completion:NULL];
+    
+}
+
+/*********************************
+ * Handle login & signup attempts
+ ********************************/
+-(void) logInViewController: (PFLogInViewController *)  logInController didLogInUser:(PFUser *)user
+{
+    NSLog(@"Calling HomeNavigationController -> didLogInUser");
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+-(void) signupViewController: (PFSignUpViewController *) signupController didSignupUser: (PFUser *) user
+{
+    NSLog(@"Calling HomeNavigationController -> didSignupUser");
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void) logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController
+{
+    NSLog(@"Calling HomeNavigationController -> loginViewControllerDidCancelLogIn");
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+-(void) signUpViewControllerDidCancelLogin: (PFSignUpViewController *) signupController{
+    NSLog(@"Calling HomeNavigationController -> signUpViewControllerDidCancelLogin");
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -78,33 +119,7 @@
 }
 
 
-/*********************************
- * Handle login & signup attempts
- ********************************/
 
-// Upon user login, dismiss the login menu
--(void) logInViewController: (PFLogInViewController *)  logInController didLogInUser:(PFUser *)user
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-    NSLog(@"Calling didLogInUser");
-    
-
-}
-
--(void) logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController
-{
-    [self dismissModalViewControllerAnimated:YES];
-    
-}
-
--(void) signupViewController: (PFSignUpViewController *) signupController didSignupUser: (PFUser *) user
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(void) signUpViewControllerDidCancelLogin: (PFSignUpViewController *) signupController{
-    [self dismissModalViewControllerAnimated:YES];
-}
 
 
 @end

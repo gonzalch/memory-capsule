@@ -189,6 +189,7 @@
             <point key="canvasLocation" x="-234" y="28"/>
         </scene>
     </scenes>
+<<<<<<< HEAD
     <resources>
         <image name="full_jar.png" width="177" height="232"/>
     </resources>
@@ -217,6 +218,8 @@
             </relationships>
         </class>
     </classes>
+=======
+>>>>>>> 8aa2f3d15bb41306551634a1200c3adc64fff903
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

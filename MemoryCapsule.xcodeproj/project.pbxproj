@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830C5C6716F2A2B000E5F8E5 /* UsefulLinks.txt in Resources */ = {isa = PBXBuildFile; fileRef = 830C5C6616F2A2B000E5F8E5 /* UsefulLinks.txt */; };
 		EA36397816E84F3900970068 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397716E84F3900970068 /* UIKit.framework */; };
 		EA36397A16E84F3900970068 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397916E84F3900970068 /* Foundation.framework */; };
 		EA36397C16E84F3900970068 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397B16E84F3900970068 /* CoreGraphics.framework */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		830C5C6616F2A2B000E5F8E5 /* UsefulLinks.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UsefulLinks.txt; sourceTree = "<group>"; };
 		EA36397416E84F3900970068 /* MemoryCapsule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryCapsule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA36397716E84F3900970068 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA36397916E84F3900970068 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,8 +248,12 @@
 		EA683A9716F1962F000BF949 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				EA683A9816F2A321000BF949 /* accounts.txt */,
 				EA683ABF16F6BCC7000BF949 /* img-licenses.txt */,
+=======
+				830C5C6616F2A2B000E5F8E5 /* UsefulLinks.txt */,
+>>>>>>> 8aa2f3d15bb41306551634a1200c3adc64fff903
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				EA36399116E84F3900970068 /* MainStoryboard.storyboard in Resources */,
 				EA683A3F16F01989000BF949 /* full_jar.png in Resources */,
 				EA683A4016F01989000BF949 /* login1.png in Resources */,
+<<<<<<< HEAD
 				EA683A9916F2A321000BF949 /* accounts.txt in Resources */,
 				EA683AC016F6BCC7000BF949 /* img-licenses.txt in Resources */,
 				EA683AE916F6C0C3000BF949 /* remove-friend.png in Resources */,
@@ -322,6 +329,9 @@
 				EA683AFF16F6DFA2000BF949 /* inbox-document-icon.png in Resources */,
 				EA683B0116F6DFFE000BF949 /* app-map-icon.png in Resources */,
 				EA683B0316F6E0D4000BF949 /* jar-32.png in Resources */,
+=======
+				830C5C6716F2A2B000E5F8E5 /* UsefulLinks.txt in Resources */,
+>>>>>>> 8aa2f3d15bb41306551634a1200c3adc64fff903
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

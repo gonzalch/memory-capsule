@@ -8,6 +8,18 @@
 
 #import "ViewController.h"
 
-@interface HomeViewController : ViewController
+@interface HomeViewController : ViewController <UITableViewDelegate>{
+
+}
+
+
+@property (nonatomic, strong ) IBOutlet UITableView * tableView;
+@property (nonatomic, retain) NSMutableArray * viewList;
+@property (nonatomic, retain) NSMutableArray * addList;
+@property (nonatomic, retain) NSArray * viewListImg;
+@property (nonatomic, retain) NSArray * addListImg;
+
+
+-(IBAction)goto_friendsView:(id)sender;
 
 @end

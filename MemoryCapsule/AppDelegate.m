@@ -20,14 +20,14 @@
                   clientKey:@"cgiuAT8dKYPPVsY6ghom5Lx7EgJC7np0o1ayqabK"];
     
     
-    
-    
     // Override point for customization after application launch.
     ///
     return YES;
     
 
 }
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

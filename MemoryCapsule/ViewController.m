@@ -37,6 +37,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+
+
+
 -(void) viewDidAppear:(BOOL)animated
 {
     NSLog(@"TabViewController: %@", self.title);
@@ -121,5 +124,21 @@
 
 
 
+#pragma mark - Animation methods
+
+-(void) animateTabBarTransition:(NSInteger) destinationTabIdx{
+
+   UIView * fromView = self.tabBarController.selectedViewController.view;
+   UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:destinationTabIdx] view];
+
+   
+   [UIView transitionFromView:fromView toView:toView duration:0.8
+        options:(destinationTabIdx > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionFlipFromLeft: UIViewAnimationOptionTransitionFlipFromRight)
+                completion:^(BOOL finished) {
+                    if (finished) {
+                        self.tabBarController.selectedIndex = destinationTabIdx;
+                    }
+    }];
+}
 
 @end

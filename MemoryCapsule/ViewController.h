@@ -10,14 +10,13 @@
 #import "Parse/Parse.h"
 
 @interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
-    IBOutlet UIBarButtonItem * logoutButton;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (nonatomic, retain) UIBarButtonItem * logoutButton;
-
+@property (nonatomic, retain) UIBarButtonItem * logoutButton; 
 
 -(IBAction)logoutButtonPressed:(id)sender;
+-(void) animateTabBarTransition:(NSInteger) destinationTabIdx;
 
 
 @end

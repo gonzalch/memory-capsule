@@ -63,11 +63,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {    //
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString * selectedRow = cell.textLabel.text;
     
     if([selectedRow  isEqual: @"Friends"]){
         [super animateTabBarTransition:2];
+    }
+    else if ([selectedRow isEqual: @"Invite new friend"]){
+        [super gotoInviteFriendView];
     }
     
 

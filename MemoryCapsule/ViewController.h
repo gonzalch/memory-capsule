@@ -17,6 +17,5 @@
 
 -(IBAction)logoutButtonPressed:(id)sender;
 -(void) animateTabBarTransition:(NSInteger) destinationTabIdx;
-
-
+-(void) gotoInviteFriendView;
 @end

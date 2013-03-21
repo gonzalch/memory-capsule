@@ -17,14 +17,14 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="41" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="rqP-W1-1jj">
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <label key="tableHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V7W-f7-JAd">
-                                            <rect key="frame" x="0.0" y="346" width="320" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" editingAccessoryType="checkmark" textLabel="0X3-dH-PE2" detailTextLabel="De9-1n-cqj" imageView="nFu-Yx-2pq" rowHeight="41" style="IBUITableViewCellStyleValue1" id="w8s-VU-Y3q">
-                                                <rect key="frame" x="0.0" y="57" width="320" height="43"/>
+                                                <rect key="frame" x="0.0" y="57" width="320" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="10" y="1" width="280" height="40"/>
@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="250" y="-924"/>
+            <point key="canvasLocation" x="286" y="-592"/>
         </scene>
         <!--View Controller - CapsulesViewController-->
         <scene sceneID="Qfi-QF-Ywd">
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCw-Te-6xV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="28"/>
+            <point key="canvasLocation" x="286" y="28"/>
         </scene>
         <!--Friends View Controller - FriendsViewController-->
         <scene sceneID="awi-0F-WS5">
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2x2-7J-Rk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="612"/>
+            <point key="canvasLocation" x="286" y="668"/>
         </scene>
         <!--Tab Bar Controller - tabBarController-->
         <scene sceneID="Do2-cS-7Av">

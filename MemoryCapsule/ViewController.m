@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "InviteViewController.h"
 
 
 
@@ -99,19 +100,19 @@
 -(void) signupViewController: (PFSignUpViewController *) signupController didSignupUser: (PFUser *) user
 {
     NSLog(@"Calling HomeNavigationController -> didSignupUser");
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController
 {
     NSLog(@"Calling HomeNavigationController -> loginViewControllerDidCancelLogIn");
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 -(void) signUpViewControllerDidCancelLogin: (PFSignUpViewController *) signupController{
     NSLog(@"Calling HomeNavigationController -> signUpViewControllerDidCancelLogin");
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -141,4 +142,12 @@
     }];
 }
 
+
+
+-(void) gotoInviteFriendView{
+    InviteViewController * inviteFriendsViewContoller = [[InviteViewController alloc]
+                                                         initWithNibName:@"InviteViewController" bundle:nil];
+    [inviteFriendsViewContoller setTitle:@"Invite new friend"];
+    [self.navigationController pushViewController:inviteFriendsViewContoller animated:YES];
+}
 @end

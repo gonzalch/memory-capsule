@@ -19,6 +19,10 @@
 		EA36398E16E84F3900970068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA36398D16E84F3900970068 /* Default-568h@2x.png */; };
 		EA36399116E84F3900970068 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA36398F16E84F3900970068 /* MainStoryboard.storyboard */; };
 		EA36399416E84F3900970068 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA36399316E84F3900970068 /* ViewController.m */; };
+		EA4243CA170161CD0037B598 /* friend-add2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243C9170161CD0037B598 /* friend-add2.png */; };
+		EA4243CE170164470037B598 /* friend-confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243CD170164470037B598 /* friend-confirm.png */; };
+		EA4243D4170166190037B598 /* jar-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243D3170166190037B598 /* jar-plus.png */; };
+		EA4243D6170166E20037B598 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243D5170166E20037B598 /* check.png */; };
 		EA683A2016EFF351000BF949 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A1F16EFF351000BF949 /* AudioToolbox.framework */; };
 		EA683A2216EFF35C000BF949 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A2116EFF35C000BF949 /* CFNetwork.framework */; };
 		EA683A2416EFF371000BF949 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A2316EFF371000BF949 /* CoreLocation.framework */; };
@@ -64,7 +68,6 @@
 		EABE1BD816FA511A008DAE00 /* jar-go.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BAB16FA511A008DAE00 /* jar-go.png */; };
 		EABE1BD916FA511A008DAE00 /* jar-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BAC16FA511A008DAE00 /* jar-lock.png */; };
 		EABE1BDA16FA511A008DAE00 /* jar-minus.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BAD16FA511A008DAE00 /* jar-minus.png */; };
-		EABE1BDB16FA511A008DAE00 /* jar-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BAE16FA511A008DAE00 /* jar-plus.png */; };
 		EABE1BDC16FA511A008DAE00 /* jar-plus4.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BAF16FA511A008DAE00 /* jar-plus4.png */; };
 		EABE1BDD16FA511A008DAE00 /* jar-unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BB016FA511A008DAE00 /* jar-unlock.png */; };
 		EABE1BDE16FA511A008DAE00 /* jar1.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BB116FA511A008DAE00 /* jar1.png */; };
@@ -103,6 +106,10 @@
 		EA36399016E84F3900970068 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EA36399216E84F3900970068 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EA36399316E84F3900970068 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EA4243C9170161CD0037B598 /* friend-add2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-add2.png"; sourceTree = "<group>"; };
+		EA4243CD170164470037B598 /* friend-confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-confirm.png"; sourceTree = "<group>"; };
+		EA4243D3170166190037B598 /* jar-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-plus.png"; sourceTree = "<group>"; };
+		EA4243D5170166E20037B598 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		EA683A1F16EFF351000BF949 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EA683A2116EFF35C000BF949 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		EA683A2316EFF371000BF949 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -153,7 +160,6 @@
 		EABE1BAB16FA511A008DAE00 /* jar-go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-go.png"; sourceTree = "<group>"; };
 		EABE1BAC16FA511A008DAE00 /* jar-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-lock.png"; sourceTree = "<group>"; };
 		EABE1BAD16FA511A008DAE00 /* jar-minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-minus.png"; sourceTree = "<group>"; };
-		EABE1BAE16FA511A008DAE00 /* jar-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-plus.png"; sourceTree = "<group>"; };
 		EABE1BAF16FA511A008DAE00 /* jar-plus4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-plus4.png"; sourceTree = "<group>"; };
 		EABE1BB016FA511A008DAE00 /* jar-unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-unlock.png"; sourceTree = "<group>"; };
 		EABE1BB116FA511A008DAE00 /* jar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jar1.png; sourceTree = "<group>"; };
@@ -320,10 +326,15 @@
 		EABE1B8F16FA511A008DAE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EABE1BA216FA511A008DAE00 /* Gimp Files */,
+				EA4243CD170164470037B598 /* friend-confirm.png */,
+				EA4243C9170161CD0037B598 /* friend-add2.png */,
 				EABE1BEF16FA51D2008DAE00 /* Default.png */,
+				EA4243D5170166E20037B598 /* check.png */,
 				EABE1B9016FA511A008DAE00 /* add-friend.png */,
 				EABE1B9116FA511A008DAE00 /* add-icon.png */,
 				EABE1B9216FA511A008DAE00 /* app-icon-114px.png */,
+				EA4243D3170166190037B598 /* jar-plus.png */,
 				EABE1B9316FA511A008DAE00 /* app-icon-57px.png */,
 				EABE1B9416FA511A008DAE00 /* app-map-icon.png */,
 				EABE1B9516FA511A008DAE00 /* Apps-preferences-system-time-icon.png */,
@@ -339,14 +350,12 @@
 				EABE1B9F16FA511A008DAE00 /* friend-remove.png */,
 				EABE1BA016FA511A008DAE00 /* friend.png */,
 				EABE1BA116FA511A008DAE00 /* full_jar.png */,
-				EABE1BA216FA511A008DAE00 /* Gimp Files */,
 				EABE1BA816FA511A008DAE00 /* home.png */,
 				EABE1BA916FA511A008DAE00 /* inbox-document-icon.png */,
 				EABE1BAA16FA511A008DAE00 /* jar-32.png */,
 				EABE1BAB16FA511A008DAE00 /* jar-go.png */,
 				EABE1BAC16FA511A008DAE00 /* jar-lock.png */,
 				EABE1BAD16FA511A008DAE00 /* jar-minus.png */,
-				EABE1BAE16FA511A008DAE00 /* jar-plus.png */,
 				EABE1BAF16FA511A008DAE00 /* jar-plus4.png */,
 				EABE1BB016FA511A008DAE00 /* jar-unlock.png */,
 				EABE1BB116FA511A008DAE00 /* jar1.png */,
@@ -467,7 +476,6 @@
 				EABE1BD816FA511A008DAE00 /* jar-go.png in Resources */,
 				EABE1BD916FA511A008DAE00 /* jar-lock.png in Resources */,
 				EABE1BDA16FA511A008DAE00 /* jar-minus.png in Resources */,
-				EABE1BDB16FA511A008DAE00 /* jar-plus.png in Resources */,
 				EABE1BDC16FA511A008DAE00 /* jar-plus4.png in Resources */,
 				EABE1BDD16FA511A008DAE00 /* jar-unlock.png in Resources */,
 				EABE1BDE16FA511A008DAE00 /* jar1.png in Resources */,
@@ -485,6 +493,10 @@
 				EABE1BEA16FA511A008DAE00 /* unlock.png in Resources */,
 				EABE1BF016FA51D2008DAE00 /* Default.png in Resources */,
 				EABE1BF116FA5217008DAE00 /* app-icon-57px.png in Resources */,
+				EA4243CA170161CD0037B598 /* friend-add2.png in Resources */,
+				EA4243CE170164470037B598 /* friend-confirm.png in Resources */,
+				EA4243D4170166190037B598 /* jar-plus.png in Resources */,
+				EA4243D6170166E20037B598 /* check.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

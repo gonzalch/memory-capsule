@@ -35,9 +35,9 @@
 - (void)viewDidLoad
 {
     viewList = [[NSMutableArray alloc] initWithObjects:@"Capsules", @"Friends",@"Notifications", @"Map", nil];
-    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"Invite new friend", nil];
+    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"Invite friend",@"Accept invitation", nil];
     viewListImg = [[NSArray alloc] initWithObjects:@"jar-32.png", @"friend.png",@"inbox-document-icon.png",@"app-map-icon.png", nil];
-    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus4.png",@"friend-add.png",nil ];
+    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus.png",@"friend-add2.png",@"friend-confirm.png",nil ];
     
     
     [self.tableView setAllowsSelection:YES];
@@ -69,7 +69,7 @@
     if([selectedRow  isEqual: @"Friends"]){
         [super animateTabBarTransition:2];
     }
-    else if ([selectedRow isEqual: @"Invite new friend"]){
+    else if ([selectedRow isEqualToString: @"Invite friend"]){
         [super gotoInviteFriendView];
     }
     
@@ -91,11 +91,14 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch(section){
         case 0: return @"View"; break;
-        case 1: return @"Add"; break;
+        case 1: return @"Add";break;
         default: return @"My friend, you are on crack!";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
 
 
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)

@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "LoginViewController.h"
 #import <MessageUI/MessageUI.h>
 
 @interface InviteViewController : ViewController<MFMailComposeViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UITextField *subject;
+@property (weak, nonatomic) IBOutlet UITextField *recipientName;
 @property (weak, nonatomic) IBOutlet UITextView *message;
 -(IBAction)sendInvite:(id)sender;
 

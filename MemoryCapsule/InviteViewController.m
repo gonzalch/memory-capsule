@@ -15,7 +15,7 @@
 
 @implementation InviteViewController
 @synthesize email;
-@synthesize subject;
+@synthesize recipientName;
 @synthesize message;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,16 +59,31 @@
 
 
 - (IBAction)sendInvite:(id)sender {
+    PFUser * user = [PFUser currentUser];
+    NSString * inviteCode =  [user objectId];
     MFMailComposeViewController * mailman = [[MFMailComposeViewController alloc]init];
     mailman.mailComposeDelegate = self;
     NSArray * emailDestinations = [[NSArray alloc] initWithObjects:@"gonzalo.parajon@gmail.com", nil];
     [mailman setToRecipients:emailDestinations];
-    [mailman setSubject: self.subject.text];
-    [mailman setMessageBody:self.message.text isHTML:YES];
+    [mailman setSubject:[NSString stringWithFormat: (@"%@ has invitied you to join his/her Memory Capsule"), user.username]];
+    //Construct user-specific invite
+    NSString * fullMessage;
+    if([self.recipientName.text isEqualToString: @""])self.recipientName.text = @"pal";
+    if([self.message.text isEqualToString:@"(optional)"]){
+        //self.message.editable = NO;
+        self.message.dataDetectorTypes = UIDataDetectorTypeAll;
+        fullMessage = [NSString stringWithFormat: (@"Hey %@,<br /><br />This is an invitation from %@ to join his/her Memory Capsule. <br /><br />1. <a href='www.google.com'>Download the Memory Capsule app</a><br /><br />2. Invite code: %@"),self.recipientName.text, user.username, inviteCode] ;
+    }
+    else{
+        //self.message.editable = NO;
+        self.message.dataDetectorTypes = UIDataDetectorTypeAll;
+        fullMessage = [NSString stringWithFormat: (@"Hey %@,<br /><br />%@<br /><br />1. <a href='www.google.com'>Download the Memory Capsule app</a><br /><br />2. Invite code: %@"),self.recipientName.text, self.message.text, inviteCode] ;
+    }
+    [mailman setMessageBody:fullMessage isHTML:YES];
     [self presentViewController:mailman animated:YES completion: nil];
     NSLog(@"RecipientList %@", emailDestinations);
-    NSLog(@"Subject: %@", self.subject.text);
-    NSLog(@"Message: %@", self.message.text);
+    //NSLog(@"Subject: %@", self.recipientName.text);
+    //NSLog(@"Message: %@", self.message.text);
 }
 
 //Remove the email viewcontroller when done

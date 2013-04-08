@@ -9,9 +9,7 @@
 #import "ViewController.h"
 #import "LoginViewController.h"
 
-@interface FriendsViewController : ViewController <UITableViewDelegate, PFLogInViewControllerDelegate>{
-    
-}
+@interface FriendsViewController : ViewController <UITableViewDelegate, PFLogInViewControllerDelegate>
 @property (retain, nonatomic) IBOutlet UIButton *acceptInviteButton;
 @property (nonatomic, strong ) IBOutlet UITableView * tableView;
 @property (nonatomic, retain) IBOutlet UIButton * inviteFriendsButton;

@@ -22,8 +22,9 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
+    
+    [self.tableView reloadData];
     
     // Set buttons' actions
     [inviteFriendsButton addTarget:self action:@selector(inviteFriendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -34,8 +35,8 @@
     self.tableView.delegate = self;
     
     
-    
 }
+
 
 
 -(IBAction)inviteFriendButtonPressed:(id)sender{

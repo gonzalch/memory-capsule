@@ -63,7 +63,7 @@
     NSString * inviteCode =  [user objectId];
     MFMailComposeViewController * mailman = [[MFMailComposeViewController alloc]init];
     mailman.mailComposeDelegate = self;
-    NSArray * emailDestinations = [[NSArray alloc] initWithObjects:@"gonzalo.parajon@gmail.com", nil];
+    NSArray * emailDestinations = [[NSArray alloc] initWithObjects:self.email.text, nil];
     [mailman setToRecipients:emailDestinations];
     [mailman setSubject:[NSString stringWithFormat: (@"%@ has invitied you to join his/her Memory Capsule"), user.username]];
     //Construct user-specific invite

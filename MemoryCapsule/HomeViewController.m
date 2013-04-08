@@ -23,14 +23,14 @@
 
 #pragma mark  - View lifecycle
 /*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}*/
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+ {
+ self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+ if (self) {
+ // Custom initialization
+ }
+ return self;
+ }*/
 
 - (void)viewDidLoad
 {
@@ -69,11 +69,20 @@
     if([selectedRow  isEqual: @"Friends"]){
         [super animateTabBarTransition:2];
     }
+    
+    if ([selectedRow isEqual: @"Capsules"]) {
+        [super animateTabBarTransition:1];
+    }
+    
+    if ([selectedRow isEqualToString: @"New Capsule"]){
+        [super goToCreateCapsuleView];
+    }
+    
     else if ([selectedRow isEqualToString: @"Invite friend"]){
         [super gotoInviteFriendView];
     }
     
-
+    
 }
 
 
@@ -117,13 +126,13 @@
     NSString * imageName;
     switch(indexPath.section){
         case 0: currentCell.textLabel.text = [viewList objectAtIndex:indexPath.row];
-                imageName = [viewListImg objectAtIndex:indexPath.row];
-                currentCell.imageView.image = [UIImage imageNamed:imageName];
-                break;
+            imageName = [viewListImg objectAtIndex:indexPath.row];
+            currentCell.imageView.image = [UIImage imageNamed:imageName];
+            break;
         case 1: currentCell.textLabel.text = [addList objectAtIndex:indexPath.row];
-                imageName = [addListImg objectAtIndex:indexPath.row];
-                currentCell.imageView.image = [UIImage imageNamed:imageName];
-                break;
+            imageName = [addListImg objectAtIndex:indexPath.row];
+            currentCell.imageView.image = [UIImage imageNamed:imageName];
+            break;
     }
     
     
@@ -138,6 +147,10 @@
 
 -(IBAction)goto_friendsView:(id)sender{
     [self.tabBarController setSelectedIndex:2];
+}
+
+-(IBAction)goto_capsulesView:(id)sender{
+    [self.tabBarController setSelectedIndex:1];
 }
 
 

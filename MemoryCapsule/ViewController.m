@@ -10,7 +10,8 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "InviteViewController.h"
-
+#import "AcceptInviteViewController.h"
+#import "CreateCapsuleViewController.h"
 
 
 @interface ViewController ()
@@ -65,7 +66,7 @@
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:NULL];
     }
-
+    
     
     
     
@@ -128,18 +129,18 @@
 #pragma mark - Animation methods
 
 -(void) animateTabBarTransition:(NSInteger) destinationTabIdx{
-
-   UIView * fromView = self.tabBarController.selectedViewController.view;
-   UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:destinationTabIdx] view];
-
-   
-   [UIView transitionFromView:fromView toView:toView duration:0.8
-        options:(destinationTabIdx > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionFlipFromLeft: UIViewAnimationOptionTransitionFlipFromRight)
-                completion:^(BOOL finished) {
-                    if (finished) {
-                        self.tabBarController.selectedIndex = destinationTabIdx;
-                    }
-    }];
+    
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:destinationTabIdx] view];
+    
+    
+    [UIView transitionFromView:fromView toView:toView duration:0.8
+                       options:(destinationTabIdx > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionFlipFromLeft: UIViewAnimationOptionTransitionFlipFromRight)
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            self.tabBarController.selectedIndex = destinationTabIdx;
+                        }
+                    }];
 }
 
 
@@ -150,4 +151,12 @@
     [inviteFriendsViewContoller setTitle:@"Invite new friend"];
     [self.navigationController pushViewController:inviteFriendsViewContoller animated:YES];
 }
+
+-(void) goToCreateCapsuleView{
+    CreateCapsuleViewController * createCapsuleViewContoller = [[CreateCapsuleViewController alloc]
+                                                                initWithNibName:@"CreateCapsuleViewController" bundle:nil];
+    [createCapsuleViewContoller setTitle:@"Create capsule"];
+    [self.navigationController pushViewController:createCapsuleViewContoller animated:YES];
+}
+
 @end

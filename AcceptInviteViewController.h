@@ -7,7 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "LoginViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface AcceptInviteViewController : ViewController
+@interface AcceptInviteViewController : ViewController <UITextViewDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *inviteCode;
+
+- (IBAction)confirmInvite:(id)sender;
 @end

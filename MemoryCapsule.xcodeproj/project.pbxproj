@@ -23,6 +23,15 @@
 		EA4243CE170164470037B598 /* friend-confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243CD170164470037B598 /* friend-confirm.png */; };
 		EA4243D4170166190037B598 /* jar-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243D3170166190037B598 /* jar-plus.png */; };
 		EA4243D6170166E20037B598 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = EA4243D5170166E20037B598 /* check.png */; };
+		EA4ED12D170E7780002421FF /* AcceptInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4ED12B170E7780002421FF /* AcceptInviteViewController.m */; };
+		EA4ED12E170E7780002421FF /* AcceptInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4ED12C170E7780002421FF /* AcceptInviteViewController.xib */; };
+		EA4ED132170E77A2002421FF /* CreateCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4ED130170E77A2002421FF /* CreateCapsuleViewController.m */; };
+		EA4ED133170E77A2002421FF /* CreateCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4ED131170E77A2002421FF /* CreateCapsuleViewController.xib */; };
+		EA4ED136170E7859002421FF /* CapsulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4ED135170E7859002421FF /* CapsulesViewController.m */; };
+		EA4ED13A170E78A4002421FF /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4ED138170E78A4002421FF /* ImageDetailViewController.m */; };
+		EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4ED139170E78A4002421FF /* ImageDetailViewController.xib */; };
+		EA4ED13F170E78C1002421FF /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4ED13D170E78C1002421FF /* ImagesViewController.m */; };
+		EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4ED13E170E78C1002421FF /* ImagesViewController.xib */; };
 		EA683A2016EFF351000BF949 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A1F16EFF351000BF949 /* AudioToolbox.framework */; };
 		EA683A2216EFF35C000BF949 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A2116EFF35C000BF949 /* CFNetwork.framework */; };
 		EA683A2416EFF371000BF949 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A2316EFF371000BF949 /* CoreLocation.framework */; };
@@ -110,6 +119,20 @@
 		EA4243CD170164470037B598 /* friend-confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-confirm.png"; sourceTree = "<group>"; };
 		EA4243D3170166190037B598 /* jar-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jar-plus.png"; sourceTree = "<group>"; };
 		EA4243D5170166E20037B598 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		EA4ED12A170E7780002421FF /* AcceptInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptInviteViewController.h; sourceTree = "<group>"; };
+		EA4ED12B170E7780002421FF /* AcceptInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptInviteViewController.m; sourceTree = "<group>"; };
+		EA4ED12C170E7780002421FF /* AcceptInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcceptInviteViewController.xib; sourceTree = "<group>"; };
+		EA4ED12F170E77A2002421FF /* CreateCapsuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCapsuleViewController.h; sourceTree = "<group>"; };
+		EA4ED130170E77A2002421FF /* CreateCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCapsuleViewController.m; sourceTree = "<group>"; };
+		EA4ED131170E77A2002421FF /* CreateCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCapsuleViewController.xib; sourceTree = "<group>"; };
+		EA4ED134170E7859002421FF /* CapsulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CapsulesViewController.h; path = MemoryCapsule/CapsulesViewController.h; sourceTree = "<group>"; };
+		EA4ED135170E7859002421FF /* CapsulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CapsulesViewController.m; path = MemoryCapsule/CapsulesViewController.m; sourceTree = "<group>"; };
+		EA4ED137170E78A4002421FF /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		EA4ED138170E78A4002421FF /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
+		EA4ED139170E78A4002421FF /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
+		EA4ED13C170E78C1002421FF /* ImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesViewController.h; sourceTree = "<group>"; };
+		EA4ED13D170E78C1002421FF /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
+		EA4ED13E170E78C1002421FF /* ImagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewController.xib; sourceTree = "<group>"; };
 		EA683A1F16EFF351000BF949 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EA683A2116EFF35C000BF949 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		EA683A2316EFF371000BF949 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -296,6 +319,17 @@
 		EA683A9516F1961D000BF949 /* Capsule */ = {
 			isa = PBXGroup;
 			children = (
+				EA4ED13C170E78C1002421FF /* ImagesViewController.h */,
+				EA4ED13D170E78C1002421FF /* ImagesViewController.m */,
+				EA4ED13E170E78C1002421FF /* ImagesViewController.xib */,
+				EA4ED137170E78A4002421FF /* ImageDetailViewController.h */,
+				EA4ED138170E78A4002421FF /* ImageDetailViewController.m */,
+				EA4ED139170E78A4002421FF /* ImageDetailViewController.xib */,
+				EA4ED12F170E77A2002421FF /* CreateCapsuleViewController.h */,
+				EA4ED130170E77A2002421FF /* CreateCapsuleViewController.m */,
+				EA4ED131170E77A2002421FF /* CreateCapsuleViewController.xib */,
+				EA4ED134170E7859002421FF /* CapsulesViewController.h */,
+				EA4ED135170E7859002421FF /* CapsulesViewController.m */,
 			);
 			name = Capsule;
 			sourceTree = "<group>";
@@ -303,6 +337,9 @@
 		EA683A9616F19624000BF949 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				EA4ED12A170E7780002421FF /* AcceptInviteViewController.h */,
+				EA4ED12B170E7780002421FF /* AcceptInviteViewController.m */,
+				EA4ED12C170E7780002421FF /* AcceptInviteViewController.xib */,
 				EAA18D8916F82FAF0011B050 /* FriendsViewController.h */,
 				EAA18D8A16F82FAF0011B050 /* FriendsViewController.m */,
 				EAA18D9C16FA37C90011B050 /* InviteViewController.h */,
@@ -497,6 +534,10 @@
 				EA4243CE170164470037B598 /* friend-confirm.png in Resources */,
 				EA4243D4170166190037B598 /* jar-plus.png in Resources */,
 				EA4243D6170166E20037B598 /* check.png in Resources */,
+				EA4ED12E170E7780002421FF /* AcceptInviteViewController.xib in Resources */,
+				EA4ED133170E77A2002421FF /* CreateCapsuleViewController.xib in Resources */,
+				EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */,
+				EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +555,11 @@
 				EA683ABE16F657DE000BF949 /* HomeViewController.m in Sources */,
 				EAA18D8B16F82FB00011B050 /* FriendsViewController.m in Sources */,
 				EAA18D9F16FA37C90011B050 /* InviteViewController.m in Sources */,
+				EA4ED12D170E7780002421FF /* AcceptInviteViewController.m in Sources */,
+				EA4ED132170E77A2002421FF /* CreateCapsuleViewController.m in Sources */,
+				EA4ED136170E7859002421FF /* CapsulesViewController.m in Sources */,
+				EA4ED13A170E78A4002421FF /* ImageDetailViewController.m in Sources */,
+				EA4ED13F170E78C1002421FF /* ImagesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

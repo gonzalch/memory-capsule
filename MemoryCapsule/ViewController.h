@@ -13,9 +13,10 @@
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (nonatomic, retain) UIBarButtonItem * logoutButton; 
+@property (nonatomic, retain) UIBarButtonItem * logoutButton;
 
 -(IBAction)logoutButtonPressed:(id)sender;
 -(void) animateTabBarTransition:(NSInteger) destinationTabIdx;
 -(void) gotoInviteFriendView;
+-(void) goToCreateCapsuleView;
 @end

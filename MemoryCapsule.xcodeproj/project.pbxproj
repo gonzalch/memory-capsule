@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */; };
+		83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */; };
 		EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21090716FA47CB0074B34E /* Parse.framework */; };
 		EA36397816E84F3900970068 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397716E84F3900970068 /* UIKit.framework */; };
 		EA36397A16E84F3900970068 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397916E84F3900970068 /* Foundation.framework */; };
@@ -98,6 +100,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83827BDF1714D94900739A87 /* InviteFriendsToCapsuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsToCapsuleViewController.h; sourceTree = "<group>"; };
+		83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsToCapsuleViewController.m; sourceTree = "<group>"; };
+		83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsToCapsuleViewController.xib; sourceTree = "<group>"; };
 		EA21090716FA47CB0074B34E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		EA36397416E84F3900970068 /* MemoryCapsule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryCapsule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA36397716E84F3900970068 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -330,6 +335,9 @@
 				EA4ED131170E77A2002421FF /* CreateCapsuleViewController.xib */,
 				EA4ED134170E7859002421FF /* CapsulesViewController.h */,
 				EA4ED135170E7859002421FF /* CapsulesViewController.m */,
+				83827BDF1714D94900739A87 /* InviteFriendsToCapsuleViewController.h */,
+				83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */,
+				83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */,
 			);
 			name = Capsule;
 			sourceTree = "<group>";
@@ -538,6 +546,7 @@
 				EA4ED133170E77A2002421FF /* CreateCapsuleViewController.xib in Resources */,
 				EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */,
 				EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */,
+				83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +569,7 @@
 				EA4ED136170E7859002421FF /* CapsulesViewController.m in Sources */,
 				EA4ED13A170E78A4002421FF /* ImageDetailViewController.m in Sources */,
 				EA4ED13F170E78C1002421FF /* ImagesViewController.m in Sources */,
+				83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

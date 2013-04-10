@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #include <stdlib.h>
 #import "ImageDetailViewController.h"
+#import "InviteFriendsToCapsuleViewController.h"
 
 @interface ImagesViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -22,6 +23,7 @@
     //MBProgressHUD *refreshHUD;
 }
 
+@property (strong, nonatomic) IBOutlet UIButton *inviteFriendsToCapsuleButton;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil capsuleName:(NSString *)capsuleNameOrNil;
 
 - (void)setUpImages:(NSArray *)images;

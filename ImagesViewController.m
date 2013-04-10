@@ -19,6 +19,7 @@
 @end
 
 @implementation ImagesViewController
+@synthesize inviteFriendsToCapsuleButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil capsuleName:(NSString *)capsuleNameOrNil
 {
@@ -41,7 +42,19 @@
     
     allImages = [[NSMutableArray alloc] init];
     
+    [inviteFriendsToCapsuleButton addTarget:self action:@selector(inviteFriendsToCapsuleButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self downloadAllImages];
+}
+
+- (IBAction)inviteFriendsToCapsuleButtonPressed:(id)sender
+{
+    NSLog(@"inviteFriendsToCapsuleButtonPressed");
+    
+    InviteFriendsToCapsuleViewController *inviteFriendsToCapsuleViewController = [[InviteFriendsToCapsuleViewController alloc] initWithNibName:@"InviteFriendsToCapsuleViewController" bundle:nil];
+    
+    [inviteFriendsToCapsuleViewController setTitle:@"Select Friends"];
+    [self.navigationController pushViewController:inviteFriendsToCapsuleViewController animated:YES];
 }
 
 - (void)downloadAllImages

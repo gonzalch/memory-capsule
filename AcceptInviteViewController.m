@@ -48,7 +48,13 @@
         PFObject * friendsList = [friendsQuery getFirstObject];
         [friendsList addUniqueObjectsFromArray:[NSArray arrayWithObjects:newFriendName,nil] forKey:@"friends"];
         [friendsList save];
-        [self.navigationController popViewControllerAnimated:YES];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Done!"
+                                                          message:[NSString stringWithFormat:  @"You have successfully added '%@' to your list of friends.",newFriendName]
+                                                         delegate:nil
+                                                cancelButtonTitle:nil
+                                                otherButtonTitles:nil];
+        [message show];
+        [self performSelector:@selector(dismissAlertViewAndReturn:) withObject:message afterDelay:2];
     }
     
     /*
@@ -76,6 +82,11 @@
          }
          }];
          */
+}
+
+-(void)dismissAlertViewAndReturn:(UIAlertView *)alertView{
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) customizeInputFields{

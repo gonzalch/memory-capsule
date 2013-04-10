@@ -370,9 +370,6 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-<<<<<<< HEAD
-			<int key="maxID">25</int>
-=======
 			<int key="maxID">40</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
@@ -449,7 +446,6 @@
 					</object>
 				</object>
 			</array>
->>>>>>> 78158ee9da66a31a5eb7d6a41635840687a6a9cc
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>

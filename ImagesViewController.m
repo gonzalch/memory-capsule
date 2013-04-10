@@ -48,8 +48,8 @@
 {
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    PFUser *user = [PFUser currentUser];
-    [query whereKey:@"user" equalTo:user];
+    //PFUser *user = [PFUser currentUser];
+    //[query whereKey:@"user" equalTo:user];
     [query whereKey:@"capsuleName" equalTo:capsuleName];
     [query orderByAscending:@"createdAt"];
     

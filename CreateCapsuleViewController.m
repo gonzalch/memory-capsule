@@ -54,14 +54,8 @@ NSString *newCapsuleName;
     [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:newCapsuleName, nil] forKey:@"capsules"];
     [newCapsule setObject:[user username] forKey:@"userName"];
     [newCapsule save];
-    
-    /*
-     [newCapsule saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-     if (!error) {
-     [self dismissViewControllerAnimated:YES completion:Nil];
-     }
-     }];
-     */
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 

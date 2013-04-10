@@ -53,7 +53,6 @@
 		EABE1B8E16FA4E73008DAE00 /* UsefulLinks.txt in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B8B16FA4E73008DAE00 /* UsefulLinks.txt */; };
 		EABE1BBE16FA511A008DAE00 /* add-friend.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9016FA511A008DAE00 /* add-friend.png */; };
 		EABE1BBF16FA511A008DAE00 /* add-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9116FA511A008DAE00 /* add-icon.png */; };
-		EABE1BC016FA511A008DAE00 /* app-icon-114px.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9216FA511A008DAE00 /* app-icon-114px.png */; };
 		EABE1BC216FA511A008DAE00 /* app-map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9416FA511A008DAE00 /* app-map-icon.png */; };
 		EABE1BC316FA511A008DAE00 /* Apps-preferences-system-time-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9516FA511A008DAE00 /* Apps-preferences-system-time-icon.png */; };
 		EABE1BC416FA511A008DAE00 /* brain-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9616FA511A008DAE00 /* brain-icon.png */; };
@@ -495,7 +494,6 @@
 				EABE1B8E16FA4E73008DAE00 /* UsefulLinks.txt in Resources */,
 				EABE1BBE16FA511A008DAE00 /* add-friend.png in Resources */,
 				EABE1BBF16FA511A008DAE00 /* add-icon.png in Resources */,
-				EABE1BC016FA511A008DAE00 /* app-icon-114px.png in Resources */,
 				EABE1BC216FA511A008DAE00 /* app-map-icon.png in Resources */,
 				EABE1BC316FA511A008DAE00 /* Apps-preferences-system-time-icon.png in Resources */,
 				EABE1BC416FA511A008DAE00 /* brain-icon.png in Resources */,

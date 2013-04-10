@@ -28,8 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     [self customizeInputFields];
     
 }
@@ -38,10 +36,7 @@
 - (IBAction)confirmInvite:(id)sender {
     NSLog(@"Confirm invite button pressed");
     NSLog(@"invite code: %@", self.inviteCode.text);
-    
     PFUser *user = [PFUser currentUser];
-    
-    
     //get new friend's name
     PFUser * newFriend = [PFQuery getUserObjectWithId:self.inviteCode.text];
     if(newFriend != nil){
@@ -51,8 +46,9 @@
         PFQuery * friendsQuery = [PFQuery queryWithClassName:@"FriendsList"];
         [friendsQuery whereKey:@"userName" equalTo:[user username]];
         PFObject * friendsList = [friendsQuery getFirstObject];
-        [friendsList addObject:newFriendName forKey:@"friends"];
+        [friendsList addUniqueObjectsFromArray:[NSArray arrayWithObjects:newFriendName,nil] forKey:@"friends"];
         [friendsList save];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     
     /*
@@ -80,8 +76,6 @@
          }
          }];
          */
-
-
 }
 
 -(void) customizeInputFields{

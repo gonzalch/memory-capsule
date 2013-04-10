@@ -22,9 +22,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    [self.tableView reloadData];
+    [super viewDidLoad];    
     
     // Set buttons' actions
     [inviteFriendsButton addTarget:self action:@selector(inviteFriendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -37,6 +35,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"FriendsViewController -> viewWillAppear called");
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 
 -(IBAction)inviteFriendButtonPressed:(id)sender{

@@ -33,10 +33,15 @@
     self.tableView.delegate = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"CapsulesViewController -> viewWillAppear called");
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 -(IBAction)createNewCapsuleButtonPressed:(id)sender
 {
     NSLog(@"createNewCapsuleButtonPressed");
-    
     CreateCapsuleViewController *createCapsuleViewController = [[CreateCapsuleViewController alloc] initWithNibName:@"CreateCapsuleViewController" bundle:nil];
     
     [createCapsuleViewController setTitle:@"Create a capsule"];

@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
-@interface InviteFriendsToCapsuleViewController : ViewController
+@interface InviteFriendsToCapsuleViewController : ViewController <UITableViewDelegate>
+{
+    NSMutableArray *friendsList;
+}
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

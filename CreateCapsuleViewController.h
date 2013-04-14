@@ -11,5 +11,13 @@
 @interface CreateCapsuleViewController : ViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *capsuleName;
 @property (strong, nonatomic) IBOutlet UIButton *createButton;
+@property (strong, nonatomic) IBOutlet UITextField *lockDate;
+@property (strong, nonatomic) IBOutlet UITextField *openDate;
+@property (nonatomic,strong) IBOutlet UIDatePicker *datePickerLock;
+@property (nonatomic, retain) UIToolbar *dateToolbarLock;
+
+@property (nonatomic,strong) IBOutlet UIDatePicker *datePickerOpen;
+@property (nonatomic, retain) UIToolbar *dateToolbarOpen;
 
 @end
+

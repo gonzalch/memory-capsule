@@ -16,6 +16,7 @@
 @interface ImagesViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     IBOutlet UIScrollView *photoScrollView;
+    IBOutlet UIButton *addButton;
     NSMutableArray *allImages;
     NSString *capsuleName;
     

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83373931171B74FC00ED071A /* Crowd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392C171B74FC00ED071A /* Crowd.jpg */; };
+		83373932171B74FC00ED071A /* Sunflowers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392D171B74FC00ED071A /* Sunflowers.jpg */; };
+		83373933171B74FC00ED071A /* ParseLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392E171B74FC00ED071A /* ParseLogo.jpg */; };
+		83373934171B74FC00ED071A /* Desert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392F171B74FC00ED071A /* Desert.jpg */; };
+		83373935171B74FC00ED071A /* Lime.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373930171B74FC00ED071A /* Lime.jpg */; };
 		83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */; };
 		83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */; };
 		EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21090716FA47CB0074B34E /* Parse.framework */; };
@@ -99,6 +104,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8337392C171B74FC00ED071A /* Crowd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd.jpg; sourceTree = "<group>"; };
+		8337392D171B74FC00ED071A /* Sunflowers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sunflowers.jpg; sourceTree = "<group>"; };
+		8337392E171B74FC00ED071A /* ParseLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ParseLogo.jpg; sourceTree = "<group>"; };
+		8337392F171B74FC00ED071A /* Desert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desert.jpg; sourceTree = "<group>"; };
+		83373930171B74FC00ED071A /* Lime.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lime.jpg; sourceTree = "<group>"; };
 		83827BDF1714D94900739A87 /* InviteFriendsToCapsuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsToCapsuleViewController.h; sourceTree = "<group>"; };
 		83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsToCapsuleViewController.m; sourceTree = "<group>"; };
 		83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsToCapsuleViewController.xib; sourceTree = "<group>"; };
@@ -370,6 +380,11 @@
 		EABE1B8F16FA511A008DAE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8337392C171B74FC00ED071A /* Crowd.jpg */,
+				8337392D171B74FC00ED071A /* Sunflowers.jpg */,
+				8337392E171B74FC00ED071A /* ParseLogo.jpg */,
+				8337392F171B74FC00ED071A /* Desert.jpg */,
+				83373930171B74FC00ED071A /* Lime.jpg */,
 				EABE1BA216FA511A008DAE00 /* Gimp Files */,
 				EA4243CD170164470037B598 /* friend-confirm.png */,
 				EA4243C9170161CD0037B598 /* friend-add2.png */,
@@ -545,6 +560,11 @@
 				EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */,
 				EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */,
 				83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */,
+				83373931171B74FC00ED071A /* Crowd.jpg in Resources */,
+				83373932171B74FC00ED071A /* Sunflowers.jpg in Resources */,
+				83373933171B74FC00ED071A /* ParseLogo.jpg in Resources */,
+				83373934171B74FC00ED071A /* Desert.jpg in Resources */,
+				83373935171B74FC00ED071A /* Lime.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

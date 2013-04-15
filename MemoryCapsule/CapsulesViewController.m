@@ -33,6 +33,8 @@
     self.tableView.delegate = self;
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"CapsulesViewController -> viewWillAppear called");
     [super viewWillAppear:animated];
@@ -56,6 +58,36 @@
 //We want 1 sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *index = [[NSArray alloc]initWithObjects:indexPath, nil];
+    
+    
+    //PFObject *deleteCapsule = [capsulesList objectAtIndex:indexPath.row]; // gets correct object in capsulesList
+    
+    NSLog(@"Deleting capsule %@", [capsulesList objectAtIndex:indexPath.row]);
+    
+    
+    // delete Capsule object from database
+    PFQuery *deleteCapsuleQuery = [PFQuery queryWithClassName:@"Capsule"];
+    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    PFObject *deleteCapsule = [deleteCapsuleQuery getFirstObject];
+    [deleteCapsule deleteInBackground]; // deletes capsule from database
+    
+    // delete capsuleName from capsules array in CapsulesList in database
+    PFUser * user = [PFUser currentUser];
+    PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
+    PFObject *deleteCapsuleFromList = [deleteCapsuleFromListQuery getFirstObject];
+    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
+    [deleteCapsuleFromList save];
+    
+    [capsulesList removeObjectAtIndex:indexPath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone]; // deletes capsule cell from tableview
+    [self.tableView reloadData];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath

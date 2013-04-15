@@ -82,6 +82,10 @@
         [super gotoInviteFriendView];
     }
     
+    else if ([selectedRow isEqualToString: @"Notifications"]){
+        [self goto_notificationsView];
+    }
+
     
 }
 
@@ -153,6 +157,11 @@
     [self.tabBarController setSelectedIndex:1];
 }
 
+
+-(IBAction) goto_notificationsView{
+    NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithNibName:@"NotificationsViewController" bundle:nil];
+    [self.navigationController pushViewController:notificationsViewController animated:YES];
+}
 
 -(IBAction) animateView: (id) sender{
     [UIView beginAnimations:nil context:nil];

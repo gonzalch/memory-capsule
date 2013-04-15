@@ -67,8 +67,6 @@
 }
 
 
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {    //
     
     NSLog(@"didSelectRowAtIndexPath called");
@@ -86,26 +84,18 @@
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    NSLog(@"numberOfRowsInSection called");
-    
-    //parse in list of friends for current user
     PFUser * user = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
     [query whereKey:@"userName" equalTo: [user username]];
-    //NSLog(@"%@", [PFUser currentUser]);
     NSArray * reqQuery = [query findObjects];
     friendsList = [[reqQuery valueForKey:@"friends"] objectAtIndex: 0];
     NSLog(@"Found %i friends", [friendsList count]);
     return [[[reqQuery valueForKey:@"friends"] objectAtIndex:0] count];
-    
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
     NSLog(@"titleForHeaderInSection called");
-    
     switch(section){
         case 0: return @"Friends"; break;
         default: return @"My friend, you are on crack!";

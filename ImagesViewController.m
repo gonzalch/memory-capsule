@@ -44,6 +44,9 @@
     
     [inviteFriendsToCapsuleButton addTarget:self action:@selector(inviteFriendsToCapsuleButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    [addButton addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self downloadAllImages];
 }
 
@@ -228,4 +231,139 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)addButtonTapped:(id)sender
+{
+    // Check for camera
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == YES) {
+        // Create image picker controller
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        
+        // Set source to the camera
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        
+        // Delegate is self
+        imagePicker.delegate = self;
+        
+        // Show image picker
+        [self.navigationController pushViewController:imagePicker animated:YES];
+    }
+    else{
+        // Device has no camera
+        UIImage *image;
+        int r = arc4random() % 9;
+        switch (r) {
+            case 0:
+                image = [UIImage imageNamed:@"ParseLogo.jpg"];
+                break;
+            case 1:
+                image = [UIImage imageNamed:@"Crowd.jpg"];
+                break;
+            case 2:
+                image = [UIImage imageNamed:@"Desert.jpg"];
+                break;
+            case 3:
+                image = [UIImage imageNamed:@"Lime.jpg"];
+                break;
+            case 4:
+                image = [UIImage imageNamed:@"Sunflowers.jpg"];
+                break;
+            case 5:
+                image = [UIImage imageNamed:@"rick-james.jpg"];
+                break;
+            case 6:
+                image = [UIImage imageNamed:@"rick-james2.jpg"];
+                break;
+            case 7:
+                image = [UIImage imageNamed:@"rick-james3.jpg"];
+                break;
+            case 8:
+                image = [UIImage imageNamed:@"tyrone-biggums.jpg"];
+                break;
+            default:
+                break;
+        }
+        
+        // Resize image
+        UIGraphicsBeginImageContext(CGSizeMake(640, 960));
+        [image drawInRect: CGRectMake(0, 0, 640, 960)];
+        UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.05f);
+        [self uploadImage:imageData];
+    }
+}
+
+- (void)uploadImage:(NSData *)imageData
+{
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
+    
+    //HUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+    //[self.view addSubview:HUD];
+    
+    // Set determinate mode
+    //HUD.mode = PF_MBProgressHUDModeDeterminate;
+   // HUD.delegate = self;
+    //HUD.labelText = @"Uploading";
+    //[HUD show:YES];
+    
+    // Save PFFile
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            //Hide determinate HUD
+            //[HUD hide:YES];
+            
+            // Show checkmark
+            //HUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+           // [self.view addSubview:HUD];
+            
+            // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
+            // Make the customViews 37 by 37 pixels for best results (those are the bounds of the build-in progress indicators)
+            //HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+            
+            // Set custom view mode
+           // HUD.mode = PF_MBProgressHUDModeCustomView;
+            
+           // HUD.delegate = self;
+            
+            // Create a PFObject around a PFFile and associate it with the current user
+            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+            [userPhoto setObject:imageFile forKey:@"imageFile"];
+            
+            // Set the access control list to current user for security purposes
+            //userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            
+            PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            [postACL setPublicReadAccess:YES];
+            [postACL setPublicWriteAccess:YES];
+            userPhoto.ACL = postACL;
+            //[publicPost saveInBackground];
+            
+            PFUser *user = [PFUser currentUser];
+            [userPhoto setObject:user forKey:@"user"];
+            [userPhoto setObject:capsuleName forKey:@"capsuleName"];
+            
+            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [self downloadAllImages];
+                }
+                else{
+                    // Log details of the failure
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        else{
+            //[HUD hide:YES];
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    } /*
+       progressBlock:^(int percentDone) {
+        // Update your progress spinner here. percentDone will be between 0 and 100.
+        //HUD.progress = (float)percentDone/100;
+    }*/];
+}
+
 @end

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83373931171B74FC00ED071A /* Crowd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392C171B74FC00ED071A /* Crowd.jpg */; };
+		83373932171B74FC00ED071A /* Sunflowers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392D171B74FC00ED071A /* Sunflowers.jpg */; };
+		83373933171B74FC00ED071A /* ParseLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392E171B74FC00ED071A /* ParseLogo.jpg */; };
+		83373934171B74FC00ED071A /* Desert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8337392F171B74FC00ED071A /* Desert.jpg */; };
+		83373935171B74FC00ED071A /* Lime.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373930171B74FC00ED071A /* Lime.jpg */; };
+		8337393A171B793E00ED071A /* rick-james3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373936171B793E00ED071A /* rick-james3.jpg */; };
+		8337393B171B793E00ED071A /* rick-james2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373937171B793E00ED071A /* rick-james2.jpg */; };
+		8337393C171B793E00ED071A /* rick-james.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373938171B793E00ED071A /* rick-james.jpg */; };
+		8337393D171B793E00ED071A /* tyrone-biggums.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83373939171B793E00ED071A /* tyrone-biggums.jpg */; };
 		83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */; };
 		83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */; };
 		EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21090716FA47CB0074B34E /* Parse.framework */; };
@@ -106,6 +115,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8337392C171B74FC00ED071A /* Crowd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd.jpg; sourceTree = "<group>"; };
+		8337392D171B74FC00ED071A /* Sunflowers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sunflowers.jpg; sourceTree = "<group>"; };
+		8337392E171B74FC00ED071A /* ParseLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ParseLogo.jpg; sourceTree = "<group>"; };
+		8337392F171B74FC00ED071A /* Desert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desert.jpg; sourceTree = "<group>"; };
+		83373930171B74FC00ED071A /* Lime.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lime.jpg; sourceTree = "<group>"; };
+		83373936171B793E00ED071A /* rick-james3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rick-james3.jpg"; sourceTree = "<group>"; };
+		83373937171B793E00ED071A /* rick-james2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rick-james2.jpg"; sourceTree = "<group>"; };
+		83373938171B793E00ED071A /* rick-james.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rick-james.jpg"; sourceTree = "<group>"; };
+		83373939171B793E00ED071A /* tyrone-biggums.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tyrone-biggums.jpg"; sourceTree = "<group>"; };
 		83827BDF1714D94900739A87 /* InviteFriendsToCapsuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsToCapsuleViewController.h; sourceTree = "<group>"; };
 		83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsToCapsuleViewController.m; sourceTree = "<group>"; };
 		83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsToCapsuleViewController.xib; sourceTree = "<group>"; };
@@ -397,6 +415,15 @@
 		EABE1B8F16FA511A008DAE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				83373936171B793E00ED071A /* rick-james3.jpg */,
+				83373937171B793E00ED071A /* rick-james2.jpg */,
+				83373938171B793E00ED071A /* rick-james.jpg */,
+				83373939171B793E00ED071A /* tyrone-biggums.jpg */,
+				8337392C171B74FC00ED071A /* Crowd.jpg */,
+				8337392D171B74FC00ED071A /* Sunflowers.jpg */,
+				8337392E171B74FC00ED071A /* ParseLogo.jpg */,
+				8337392F171B74FC00ED071A /* Desert.jpg */,
+				83373930171B74FC00ED071A /* Lime.jpg */,
 				EABE1BA216FA511A008DAE00 /* Gimp Files */,
 				EA4243CD170164470037B598 /* friend-confirm.png */,
 				EA73557617178EBC00C1FDC9 /* new-notification.png */,
@@ -576,12 +603,24 @@
 				EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */,
 				EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */,
 				83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */,
+<<<<<<< HEAD
 				EA735563171603CD00C1FDC9 /* git.txt in Resources */,
 				EA73557117177AB100C1FDC9 /* NotificationsViewController.xib in Resources */,
 				EA73557417178E2500C1FDC9 /* message.png in Resources */,
 				EA73557517178E2500C1FDC9 /* new-message.png in Resources */,
 				EA73557817178EBC00C1FDC9 /* new-notification.png in Resources */,
 				EA73557917178EBC00C1FDC9 /* notification.png in Resources */,
+=======
+				83373931171B74FC00ED071A /* Crowd.jpg in Resources */,
+				83373932171B74FC00ED071A /* Sunflowers.jpg in Resources */,
+				83373933171B74FC00ED071A /* ParseLogo.jpg in Resources */,
+				83373934171B74FC00ED071A /* Desert.jpg in Resources */,
+				83373935171B74FC00ED071A /* Lime.jpg in Resources */,
+				8337393A171B793E00ED071A /* rick-james3.jpg in Resources */,
+				8337393B171B793E00ED071A /* rick-james2.jpg in Resources */,
+				8337393C171B793E00ED071A /* rick-james.jpg in Resources */,
+				8337393D171B793E00ED071A /* tyrone-biggums.jpg in Resources */,
+>>>>>>> af71c430a2ddfcb5fd01b848cc47798a6c3daf77
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

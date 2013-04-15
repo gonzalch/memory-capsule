@@ -251,7 +251,7 @@
     else{
         // Device has no camera
         UIImage *image;
-        int r = arc4random() % 5;
+        int r = arc4random() % 9;
         switch (r) {
             case 0:
                 image = [UIImage imageNamed:@"ParseLogo.jpg"];
@@ -267,6 +267,18 @@
                 break;
             case 4:
                 image = [UIImage imageNamed:@"Sunflowers.jpg"];
+                break;
+            case 5:
+                image = [UIImage imageNamed:@"rick-james.jpg"];
+                break;
+            case 6:
+                image = [UIImage imageNamed:@"rick-james2.jpg"];
+                break;
+            case 7:
+                image = [UIImage imageNamed:@"rick-james3.jpg"];
+                break;
+            case 8:
+                image = [UIImage imageNamed:@"tyrone-biggums.jpg"];
                 break;
             default:
                 break;

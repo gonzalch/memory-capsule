@@ -11,6 +11,7 @@
 #import "CreateCapsuleViewController.h"
 #import "ImagesViewController.h"
 #import <UIKit/UIKit.h>
+#import <stdlib.h>
 
 @interface CapsulesViewController : ViewController <UITableViewDelegate, PFLogInViewControllerDelegate>
 

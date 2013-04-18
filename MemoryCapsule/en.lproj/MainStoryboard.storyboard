@@ -17,7 +17,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="38" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="8YC-IY-SQ2">
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <label key="tableHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iCU-o6-47g">
-                                            <rect key="frame" x="0.0" y="346" width="320" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -92,17 +92,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="G5K-5l-T4W">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="G5K-5l-T4W">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="291" id="YFW-od-YAt"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" textLabel="MBg-UO-Cz5" detailTextLabel="Or7-03-gEt" imageView="g7p-r7-GSA" style="IBUITableViewCellStyleValue1" id="BQc-Qg-sdp">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MBg-UO-Cz5">
@@ -112,7 +112,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Or7-03-gEt">
-                                                    <rect key="frame" x="246" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="226" y="11" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,10 +132,11 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-lQ-HgX">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="YhV-6I-EZs"/>
+                                    <constraint firstAttribute="height" constant="49" id="iDx-HS-qeC"/>
+                                    <constraint firstAttribute="width" constant="43" id="mx7-1Y-5F1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Create New Capsule">
+                                <state key="normal" backgroundImage="jar-plus.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -144,13 +145,13 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Jhb-lQ-HgX" firstAttribute="centerX" secondItem="G5K-5l-T4W" secondAttribute="centerX" type="default" id="OX7-lc-gj4"/>
+                            <constraint firstItem="Jhb-lQ-HgX" firstAttribute="top" secondItem="G5K-5l-T4W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Nbe-2N-wbf"/>
                             <constraint firstItem="G5K-5l-T4W" firstAttribute="top" secondItem="UE3-s5-Nz7" secondAttribute="top" type="default" id="YOm-hW-P97"/>
                             <constraint firstItem="G5K-5l-T4W" firstAttribute="leading" secondItem="UE3-s5-Nz7" secondAttribute="leading" type="default" id="lhu-78-zWi"/>
+                            <constraint firstAttribute="trailing" secondItem="Jhb-lQ-HgX" secondAttribute="trailing" constant="26" id="qrc-jx-06v"/>
                             <constraint firstItem="G5K-5l-T4W" firstAttribute="trailing" secondItem="UE3-s5-Nz7" secondAttribute="trailing" type="default" id="sux-3k-G11"/>
-                            <constraint firstAttribute="bottom" secondItem="Jhb-lQ-HgX" secondAttribute="bottom" constant="13" id="t4q-By-9Yh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Capsules" id="Gsh-P9-O2M"/>
@@ -367,7 +368,47 @@
         <image name="capsule-icon.png" width="128" height="128"/>
         <image name="friend.png" width="32" height="32"/>
         <image name="jar-32.png" width="32" height="32"/>
+        <image name="jar-plus.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="CapsulesViewController" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CapsulesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createNewCapsuleButtonPressed:"/>
+                <relationship kind="outlet" name="createNewCapsuleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="FriendsViewController" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="acceptInviteButtonPressed:"/>
+                <relationship kind="action" name="inviteFriendButtonPressed:"/>
+                <relationship kind="outlet" name="acceptInviteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inviteFriendsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="HomeViewController" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="animateView:"/>
+                <relationship kind="action" name="goto_capsulesView:"/>
+                <relationship kind="action" name="goto_friendsView:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonPressed:"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

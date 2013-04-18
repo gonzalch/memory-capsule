@@ -84,6 +84,46 @@
     [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
     [deleteCapsuleFromList save];
     
+    PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteImagesQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteImagesArray, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d images.", deleteImagesArray.count);
+            
+            if (deleteImagesArray.count > 0) {
+                for (PFObject *eachObject in deleteImagesArray) {
+                    //[newObjectIDArray addObject:[eachObject objectId]];
+                    [eachObject deleteInBackground];
+                }
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    
+    
+    // delete images that belonged to the capsule in database
+    /*
+    PFQuery *deleteImagesQuery = [PFQuery queryWithClassName:@"UserPhoto"];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo: [capsulesList objectAtIndex:indexPath.row]];
+    NSArray *deleteImagesArray = [[[deleteImagesQuery findObjects] valueForKey:@"ObjectId"] objectAtIndex:0];
+    NSLog(@"%i images to be deleted found.", [deleteImagesArray count]);
+    for (int i = 0; i < [deleteImagesArray count]; i++) {
+        NSString *imageId = [deleteImagesArray objectAtIndex:i];
+        NSLog(@"Deleting image %i id %@", i, imageId);
+        PFQuery *deleteImageQuery =[PFQuery queryWithClassName:@"UserPhoto"];
+        [deleteImageQuery whereKey:@"ObjectId" equalTo:imageId];
+        PFObject *deleteImage = [deleteImageQuery getFirstObject];
+        [deleteImage deleteInBackground];
+    }
+    */
+    //NSLog(@"%i images to be deleted found.", [deleteImagesArray count]);
+    
+    // delete capsule name from tableview datasource array
     [capsulesList removeObjectAtIndex:indexPath.row];
     
     [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone]; // deletes capsule cell from tableview
@@ -130,7 +170,7 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"this shit was called");
+    //NSLog(@"this shit was called");
     
     UITableViewCell * currentCell = nil;
     

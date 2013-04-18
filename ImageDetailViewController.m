@@ -46,7 +46,7 @@
     PFObject *imageObject = [imageQuery getFirstObject];
     //NSLog(@"Deleting image %@", [imageObject valueForKey:@"objectId"]);
 
-    [imageObject deleteInBackground];
+    [imageObject delete];
     
     if( [self.ptrToDelUser respondsToSelector:@selector(deleteImageAgent:)] )
 		[self.ptrToDelUser deleteImageAgent:self];

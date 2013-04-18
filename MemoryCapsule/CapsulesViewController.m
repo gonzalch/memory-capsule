@@ -185,6 +185,24 @@
     
     //Depending on our current section, populate the cells
     currentCell.textLabel.text = capsulesList[indexPath.row];
+    
+    PFQuery *imagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
+    [imagesQuery whereKey:@"capsuleName" equalTo:capsulesList[indexPath.row]];
+    [imagesQuery findObjectsInBackgroundWithBlock:^(NSArray *imagesArray, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d images.", imagesArray.count);
+            
+            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%d images", imagesArray.count];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+    
+    
     return currentCell;
 }
 

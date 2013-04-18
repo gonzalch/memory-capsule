@@ -33,6 +33,8 @@
     self.tableView.delegate = self;
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"CapsulesViewController -> viewWillAppear called");
     [super viewWillAppear:animated];
@@ -56,6 +58,76 @@
 //We want 1 sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *index = [[NSArray alloc]initWithObjects:indexPath, nil];
+    
+    
+    //PFObject *deleteCapsule = [capsulesList objectAtIndex:indexPath.row]; // gets correct object in capsulesList
+    
+    NSLog(@"Deleting capsule %@", [capsulesList objectAtIndex:indexPath.row]);
+    
+    
+    // delete Capsule object from database
+    PFQuery *deleteCapsuleQuery = [PFQuery queryWithClassName:@"Capsule"];
+    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    PFObject *deleteCapsule = [deleteCapsuleQuery getFirstObject];
+    [deleteCapsule deleteInBackground]; // deletes capsule from database
+    
+    // delete capsuleName from capsules array in CapsulesList in database
+    PFUser * user = [PFUser currentUser];
+    PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
+    PFObject *deleteCapsuleFromList = [deleteCapsuleFromListQuery getFirstObject];
+    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
+    [deleteCapsuleFromList save];
+    
+    PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteImagesQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteImagesArray, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d images.", deleteImagesArray.count);
+            
+            if (deleteImagesArray.count > 0) {
+                for (PFObject *eachObject in deleteImagesArray) {
+                    //[newObjectIDArray addObject:[eachObject objectId]];
+                    [eachObject deleteInBackground];
+                }
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    
+    
+    // delete images that belonged to the capsule in database
+    /*
+    PFQuery *deleteImagesQuery = [PFQuery queryWithClassName:@"UserPhoto"];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo: [capsulesList objectAtIndex:indexPath.row]];
+    NSArray *deleteImagesArray = [[[deleteImagesQuery findObjects] valueForKey:@"ObjectId"] objectAtIndex:0];
+    NSLog(@"%i images to be deleted found.", [deleteImagesArray count]);
+    for (int i = 0; i < [deleteImagesArray count]; i++) {
+        NSString *imageId = [deleteImagesArray objectAtIndex:i];
+        NSLog(@"Deleting image %i id %@", i, imageId);
+        PFQuery *deleteImageQuery =[PFQuery queryWithClassName:@"UserPhoto"];
+        [deleteImageQuery whereKey:@"ObjectId" equalTo:imageId];
+        PFObject *deleteImage = [deleteImageQuery getFirstObject];
+        [deleteImage deleteInBackground];
+    }
+    */
+    //NSLog(@"%i images to be deleted found.", [deleteImagesArray count]);
+    
+    // delete capsule name from tableview datasource array
+    [capsulesList removeObjectAtIndex:indexPath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone]; // deletes capsule cell from tableview
+    [self.tableView reloadData];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
@@ -98,7 +170,7 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"this shit was called");
+    //NSLog(@"this shit was called");
     
     UITableViewCell * currentCell = nil;
     
@@ -113,6 +185,24 @@
     
     //Depending on our current section, populate the cells
     currentCell.textLabel.text = capsulesList[indexPath.row];
+    
+    PFQuery *imagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
+    [imagesQuery whereKey:@"capsuleName" equalTo:capsulesList[indexPath.row]];
+    [imagesQuery findObjectsInBackgroundWithBlock:^(NSArray *imagesArray, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d images.", imagesArray.count);
+            
+            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%d images", imagesArray.count];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+    
+    
     return currentCell;
 }
 

@@ -13,7 +13,7 @@
 #import "ImageDetailViewController.h"
 #import "InviteFriendsToCapsuleViewController.h"
 
-@interface ImagesViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ImagesViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, SendBackDelegate>
 {
     IBOutlet UIScrollView *photoScrollView;
     IBOutlet UIButton *addButton;

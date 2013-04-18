@@ -50,6 +50,15 @@
     [self downloadAllImages];
 }
 
+
+- (void) deleteImageAgent: (id) sender{
+    NSLog(@"deleteImageAgent called");
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self downloadAllImages];
+}
+
 - (IBAction)inviteFriendsToCapsuleButtonPressed:(id)sender
 {
     NSLog(@"inviteFriendsToCapsuleButtonPressed");
@@ -57,6 +66,7 @@
     InviteFriendsToCapsuleViewController *inviteFriendsToCapsuleViewController = [[InviteFriendsToCapsuleViewController alloc] initWithNibName:@"InviteFriendsToCapsuleViewController" bundle:nil];
     
     [inviteFriendsToCapsuleViewController setTitle:@"Select Friends"];
+    
     [self.navigationController pushViewController:inviteFriendsToCapsuleViewController animated:YES];
 }
 
@@ -223,6 +233,9 @@
     ImageDetailViewController *idvc = [[ImageDetailViewController alloc] init];
     
     idvc.selectedImage = selectedPhoto;
+    idvc.imageName = [theObject objectId];
+    idvc.ptrToDelUser = self;
+    
     [self.navigationController pushViewController:idvc animated:YES];
 }
 
@@ -365,5 +378,6 @@
         //HUD.progress = (float)percentDone/100;
     }*/];
 }
+
 
 @end

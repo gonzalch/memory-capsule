@@ -15,6 +15,8 @@
 @implementation ImageDetailViewController
 @synthesize imageView;
 @synthesize selectedImage;
+@synthesize deleteImageButton;
+@synthesize imageName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +33,23 @@
     // Do any additional setup after loading the view from its nib.
     
     self.imageView.image = selectedImage;
+    
+     [deleteImageButton addTarget:self action:@selector(deleteImageButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)deleteImageButtonTapped:(id)sender
+{
+    NSLog(@"Deleting image %@", imageName);
+    
+    PFQuery *imageQuery = [PFQuery queryWithClassName:@"UserPhoto"];
+    [imageQuery whereKey:@"objectId" equalTo:imageName];
+    PFObject *imageObject = [imageQuery getFirstObject];
+    //NSLog(@"Deleting image %@", [imageObject valueForKey:@"objectId"]);
+
+    [imageObject delete];
+    
+    if( [self.ptrToDelUser respondsToSelector:@selector(deleteImageAgent:)] )
+		[self.ptrToDelUser deleteImageAgent:self];
 }
 
 - (void)didReceiveMemoryWarning

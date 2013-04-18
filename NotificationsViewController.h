@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "IndividualNotificationViewController.h"
 
-@interface NotificationsViewController : UITableViewController <UITableViewDelegate, PFLogInViewControllerDelegate>
+@interface NotificationsViewController : PFQueryTableViewController <UITableViewDelegate, PFLogInViewControllerDelegate>
 
 @property (nonatomic, strong ) IBOutlet UITableView * tableView;
 

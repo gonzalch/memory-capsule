@@ -66,14 +66,7 @@
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:NULL];
     }
-    
-    
-    
-    
-    
 }
-
-
 
 
 
@@ -114,13 +107,6 @@
 -(void) signUpViewControllerDidCancelLogin: (PFSignUpViewController *) signupController{
     NSLog(@"Calling HomeNavigationController -> signUpViewControllerDidCancelLogin");
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

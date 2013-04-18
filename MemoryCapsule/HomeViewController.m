@@ -159,7 +159,8 @@
 
 
 -(IBAction) goto_notificationsView{
-    NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithNibName:@"NotificationsViewController" bundle:nil];
+    NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithStyle:UITableViewStyleGrouped]; //ViewController * notificationsViewController = [[NotificationsViewController alloc] initWithClassName:@"Notifications"];
+                                                                 //initWithNibName:@"NotificationsViewController" bundle:nil];
     [self.navigationController pushViewController:notificationsViewController animated:YES];
 }
 

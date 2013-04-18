@@ -19,6 +19,8 @@
 		83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */; };
 		83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */; };
 		EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21090716FA47CB0074B34E /* Parse.framework */; };
+		EA29A332171F6DAC00C73114 /* IndividualNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29A330171F6DAC00C73114 /* IndividualNotificationViewController.m */; };
+		EA29A333171F6DAC00C73114 /* IndividualNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA29A331171F6DAC00C73114 /* IndividualNotificationViewController.xib */; };
 		EA36397816E84F3900970068 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397716E84F3900970068 /* UIKit.framework */; };
 		EA36397A16E84F3900970068 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397916E84F3900970068 /* Foundation.framework */; };
 		EA36397C16E84F3900970068 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA36397B16E84F3900970068 /* CoreGraphics.framework */; };
@@ -109,7 +111,6 @@
 		EABE1BE816FA511A008DAE00 /* skull-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BBB16FA511A008DAE00 /* skull-icon.png */; };
 		EABE1BE916FA511A008DAE00 /* tutorial_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BBC16FA511A008DAE00 /* tutorial_thumb.png */; };
 		EABE1BEA16FA511A008DAE00 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BBD16FA511A008DAE00 /* unlock.png */; };
-		EABE1BF016FA51D2008DAE00 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1BEF16FA51D2008DAE00 /* Default.png */; };
 		EABE1BF116FA5217008DAE00 /* app-icon-57px.png in Resources */ = {isa = PBXBuildFile; fileRef = EABE1B9316FA511A008DAE00 /* app-icon-57px.png */; };
 		EABE1BF316FA5CF5008DAE00 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1BF216FA5CF5008DAE00 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,9 @@
 		83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsToCapsuleViewController.m; sourceTree = "<group>"; };
 		83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsToCapsuleViewController.xib; sourceTree = "<group>"; };
 		EA21090716FA47CB0074B34E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		EA29A32F171F6DAC00C73114 /* IndividualNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualNotificationViewController.h; sourceTree = "<group>"; };
+		EA29A330171F6DAC00C73114 /* IndividualNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualNotificationViewController.m; sourceTree = "<group>"; };
+		EA29A331171F6DAC00C73114 /* IndividualNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndividualNotificationViewController.xib; sourceTree = "<group>"; };
 		EA36397416E84F3900970068 /* MemoryCapsule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryCapsule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA36397716E84F3900970068 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA36397916E84F3900970068 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +187,7 @@
 		EA73557317178E2500C1FDC9 /* new-message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-message.png"; path = "Gimp Files/new-message.png"; sourceTree = "<group>"; };
 		EA73557617178EBC00C1FDC9 /* new-notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-notification.png"; sourceTree = "<group>"; };
 		EA73557717178EBC00C1FDC9 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		EA73557D171F382C00C1FDC9 /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		EAA18D8916F82FAF0011B050 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = MemoryCapsule/FriendsViewController.h; sourceTree = "<group>"; };
 		EAA18D8A16F82FAF0011B050 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = MemoryCapsule/FriendsViewController.m; sourceTree = "<group>"; };
 		EAA18D9C16FA37C90011B050 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteViewController.h; path = MemoryCapsule/InviteViewController.h; sourceTree = "<group>"; };
@@ -396,6 +401,10 @@
 				EA73556D17177AB100C1FDC9 /* NotificationsViewController.h */,
 				EA73556E17177AB100C1FDC9 /* NotificationsViewController.m */,
 				EA73556F17177AB100C1FDC9 /* NotificationsViewController.xib */,
+				EA73557D171F382C00C1FDC9 /* TestController.h */,
+				EA29A32F171F6DAC00C73114 /* IndividualNotificationViewController.h */,
+				EA29A330171F6DAC00C73114 /* IndividualNotificationViewController.m */,
+				EA29A331171F6DAC00C73114 /* IndividualNotificationViewController.xib */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -592,7 +601,6 @@
 				EABE1BE816FA511A008DAE00 /* skull-icon.png in Resources */,
 				EABE1BE916FA511A008DAE00 /* tutorial_thumb.png in Resources */,
 				EABE1BEA16FA511A008DAE00 /* unlock.png in Resources */,
-				EABE1BF016FA51D2008DAE00 /* Default.png in Resources */,
 				EABE1BF116FA5217008DAE00 /* app-icon-57px.png in Resources */,
 				EA4243CA170161CD0037B598 /* friend-add2.png in Resources */,
 				EA4243CE170164470037B598 /* friend-confirm.png in Resources */,
@@ -603,14 +611,12 @@
 				EA4ED13B170E78A4002421FF /* ImageDetailViewController.xib in Resources */,
 				EA4ED140170E78C1002421FF /* ImagesViewController.xib in Resources */,
 				83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */,
-<<<<<<< HEAD
 				EA735563171603CD00C1FDC9 /* git.txt in Resources */,
 				EA73557117177AB100C1FDC9 /* NotificationsViewController.xib in Resources */,
 				EA73557417178E2500C1FDC9 /* message.png in Resources */,
 				EA73557517178E2500C1FDC9 /* new-message.png in Resources */,
 				EA73557817178EBC00C1FDC9 /* new-notification.png in Resources */,
 				EA73557917178EBC00C1FDC9 /* notification.png in Resources */,
-=======
 				83373931171B74FC00ED071A /* Crowd.jpg in Resources */,
 				83373932171B74FC00ED071A /* Sunflowers.jpg in Resources */,
 				83373933171B74FC00ED071A /* ParseLogo.jpg in Resources */,
@@ -620,7 +626,7 @@
 				8337393B171B793E00ED071A /* rick-james2.jpg in Resources */,
 				8337393C171B793E00ED071A /* rick-james.jpg in Resources */,
 				8337393D171B793E00ED071A /* tyrone-biggums.jpg in Resources */,
->>>>>>> af71c430a2ddfcb5fd01b848cc47798a6c3daf77
+				EA29A333171F6DAC00C73114 /* IndividualNotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +651,7 @@
 				EA4ED13F170E78C1002421FF /* ImagesViewController.m in Sources */,
 				83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */,
 				EA73557017177AB100C1FDC9 /* NotificationsViewController.m in Sources */,
+				EA29A332171F6DAC00C73114 /* IndividualNotificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

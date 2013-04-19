@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "NotificationsViewController.h"
+#import "NotificationsController.h"
 
 @interface HomeViewController : ViewController <UITableViewDelegate>{
     

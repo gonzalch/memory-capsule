@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface IndividualNotificationViewController : UIViewController
+@interface IndividualNotificationViewController : ViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *h1;
 
@@ -24,6 +25,6 @@
 
 - (IBAction)disregardAction:(id)sender;
 
-- (void) setDefaultViewComponents: (NSString *) h1Text forHeader2 :(NSString *) h2Text forMessageBox: (NSString*) messageText acceptBtnLabel: (NSString *) b1Text disregardBtnLabel: (NSString *) b2Text;
+- (void) passCustomData: (NSString *) capsule forHeader1: (NSString *) h1Text forHeader2 :(NSString *) h2Text forMessageBox: (NSString*) messageText;
 
 @end

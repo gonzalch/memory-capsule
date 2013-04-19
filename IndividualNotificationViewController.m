@@ -8,11 +8,13 @@
 
 #import "IndividualNotificationViewController.h"
 
-@interface IndividualNotificationViewController ()
-
+@interface IndividualNotificationViewController (){
+    PFUser * user;
+    PFQuery * query;
+    NSString * capsuleName;
+}
+    
 @end
-
-
 
 @implementation IndividualNotificationViewController
 
@@ -25,6 +27,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -36,12 +39,28 @@
 {
     [super viewDidLoad];
     
+    //set the user
+    user = [PFUser currentUser];
+    
+    //target table
+    query =  [PFQuery queryWithClassName: @"Notifications"];
+    
+    //confirm message as read, wait for view to completely load..
+    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(confirmMessageAsRead) userInfo:nil repeats:NO];
     
 }
 
 - (IBAction)acceptAction:(id)sender {
     NSLog(@"acceptAction");
-    [self.h1 setText:@"testing"];
+    
+    //Add capsule to user's list of subscribed capsules
+    PFQuery *addSelfToCapsuleQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [addSelfToCapsuleQuery whereKey:@"userName" equalTo:[user username]];
+    PFObject * newCapsule = [addSelfToCapsuleQuery getFirstObject];
+    [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:capsuleName, nil] forKey:@"capsules"];
+    [newCapsule setObject:[user username] forKey:@"userName"];
+    [newCapsule save];
+
 }
 
 - (IBAction)disregardAction:(id)sender {
@@ -50,14 +69,36 @@
 }
 
 
-- (void) setDefaultViewComponents: (NSString *) h1Text forHeader2 :(NSString *) h2Text forMessageBox: (NSString*) messageText acceptBtnLabel: (NSString *) b1Text disregardBtnLabel: (NSString *) b2Text{
+- (void) passCustomData: (NSString *) capsule forHeader1: (NSString *) h1Text forHeader2 :(NSString *) h2Text forMessageBox: (NSString*) messageText{
     NSLog(@"Calling setDefaultViewComponents");
+    self->capsuleName = capsule;
+    NSLog(@"CapsuleName is: %@", self->capsuleName);
     [self.h1 setText:h1Text];
     [self.h2 setText: h2Text];
     [self.message setText: messageText];
-    [self.acceptBtn.titleLabel setText: b1Text];
-    [self.disregardBtn.titleLabel setText: b2Text];
- 
+}
+
+-(void) confirmMessageAsRead{
+    
+    NSLog(@"First object: %i",[query countObjects]);
+    
+    if(query == nil){
+        NSLog(@"empty query!!!");
+        query =  [PFQuery queryWithClassName: @"Notifications"];
+    }
+    
+    //Set the current message as already read!
+    [query whereKey:@"to" containsString: [user.username lowercaseString]];
+    [query whereKey:@"message" containsString:self.message.text];
+    
+    if([query countObjects] == 1){
+        PFObject * currentInvitation = [query getFirstObject];
+        [currentInvitation  setObject:[NSNumber numberWithBool:TRUE] forKey:@"read"];
+        [currentInvitation save];
+    }
+    
+    else
+        NSLog(@"There are %i possible notifications that match this description, ignoring request...", [query countObjects]);
 }
 
 @end

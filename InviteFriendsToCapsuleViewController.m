@@ -65,15 +65,12 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch(section){
         case 0: return @"Friends"; break;
-        default: return @"I assure you, I'm not on crack!";
     }
 }
 
 
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"this shit was called for InviteFriendsToCapsuleViewController");
     
     UITableViewCell * currentCell = nil;
     

@@ -14,6 +14,7 @@
 @end
 
 @implementation AcceptInviteViewController
+
 @synthesize inviteCode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,32 +57,6 @@
         [message show];
         [self performSelector:@selector(dismissAlertViewAndReturn:) withObject:message afterDelay:2];
     }
-    
-    /*
-    PFUser * user = [PFUser currentUser];
-    PFQuery * query = [PFQuery queryWithClassName:@"FriendsList"];
-    [query whereKey:@"unserName" equalTo:[user username]];
-    PFObject *newFriend = [query getFirstObject];
-    newFriend addUniqueObject
-      /*
-        NSLog(@"CreateButtonPressed");
-        PFUser *user = [PFUser currentUser];
-        //NSArray *array = [NSArray arrayWithObjects:newCapsuleName, nil];
-        PFQuery *query = [PFQuery queryWithClassName:@"CapsulesList"];
-        [query whereKey:@"userName" equalTo:[user username]];
-        PFObject *newCapsule = [query getFirstObject];
-        //PFObject *newCapsule = [PFObject objectWithClassName:@"CapsulesList"];
-        [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:newCapsuleName, nil] forKey:@"capsules"];
-        [newCapsule setObject:[user username] forKey:@"userName"];
-        [newCapsule save];
-      */  
-        /*
-         [newCapsule saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-         if (!error) {
-         [self dismissViewControllerAnimated:YES completion:Nil];
-         }
-         }];
-         */
 }
 
 -(void)dismissAlertViewAndReturn:(UIAlertView *)alertView{
@@ -91,7 +66,7 @@
 
 -(void) customizeInputFields{
     
-    UITextField * inviteCode = self.view.subviews[1];
+    //UITextField * invitationCode = self.view.subviews[1];
     [inviteCode.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
     [inviteCode.layer setBorderColor: [[UIColor grayColor] CGColor]];
     [inviteCode.layer setBorderWidth: 1.0];

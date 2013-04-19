@@ -139,8 +139,6 @@
             break;
     }
     
-    
-    
     return currentCell;
 }
 
@@ -159,7 +157,10 @@
 
 
 -(IBAction) goto_notificationsView{
-    NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithStyle:UITableViewStyleGrouped]; //ViewController * notificationsViewController = [[NotificationsViewController alloc] initWithClassName:@"Notifications"];
+    
+    NotificationsController * notificationsViewController = [[NotificationsController alloc]initWithStyle:UITableViewStyleGrouped];
+    
+    //NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithStyle:UITableViewStyleGrouped]; //ViewController * notificationsViewController = [[NotificationsViewController alloc] initWithClassName:@"Notifications"];
                                                                  //initWithNibName:@"NotificationsViewController" bundle:nil];
     [self.navigationController pushViewController:notificationsViewController animated:YES];
 }

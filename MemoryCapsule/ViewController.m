@@ -134,7 +134,7 @@
 -(void) gotoInviteFriendView{
     InviteViewController * inviteFriendsViewContoller = [[InviteViewController alloc]
                                                          initWithNibName:@"InviteViewController" bundle:nil];
-    [inviteFriendsViewContoller setTitle:@"Invite new friend"];
+    [inviteFriendsViewContoller setTitle:@"E-mail Invite"];
     [self.navigationController pushViewController:inviteFriendsViewContoller animated:YES];
 }
 

@@ -46,7 +46,7 @@
     query =  [PFQuery queryWithClassName: @"Notifications"];
     
     //confirm message as read, wait for view to completely load..
-    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(confirmMessageAsRead) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:.03 target:self selector:@selector(confirmMessageAsRead) userInfo:nil repeats:NO];
     
 }
 
@@ -60,8 +60,23 @@
     [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:capsuleName, nil] forKey:@"capsules"];
     [newCapsule setObject:[user username] forKey:@"userName"];
     [newCapsule save];
-
+    
+    // Confirmation message
+    UIAlertView *alertMessage = [[UIAlertView alloc] initWithTitle:@"Done!"
+                                                      message:[NSString stringWithFormat:  @"You can now contribute to the following memory capsule:  %@.",capsuleName]
+                                                     delegate:nil
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:nil];
+    [alertMessage show];
+    [self performSelector:@selector(dismissAlertViewAndReturn:) withObject:alertMessage afterDelay:2];
 }
+
+-(void)dismissAlertViewAndReturn:(UIAlertView *)alertView{
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 - (IBAction)disregardAction:(id)sender {
     NSLog(@"disregardAction");
@@ -79,9 +94,6 @@
 }
 
 -(void) confirmMessageAsRead{
-    
-    NSLog(@"First object: %i",[query countObjects]);
-    
     if(query == nil){
         NSLog(@"empty query!!!");
         query =  [PFQuery queryWithClassName: @"Notifications"];

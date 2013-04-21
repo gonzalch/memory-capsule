@@ -23,6 +23,8 @@
         
         capsuleIdentifiers = [[NSMutableArray alloc]init];
         
+        self.title = @"Inbox";
+    
         // The className to query on
         self.className = @"Notifications";
         
@@ -123,6 +125,9 @@
     return query;
 }
 
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"Capsule Requests";
+}
 
 
 // Override to customize the look of a cell representing an object. The default is to display
@@ -153,10 +158,6 @@
     cell.textLabel.text = [object objectForKey:@"message"];
     cell.detailTextLabel.text = [object objectForKey:@"from"];
     
-    //[cells addObject: @"test"];
-    //NSLog(@"%i",cells.count);
-    //Save the cell into a array
-    //[cells addObject:cell.textLabel.text];//insertObject:cell atIndex:indexPath.row];
     return cell;
 
 }
@@ -240,20 +241,8 @@
     //UIImage * currentImage = [cell.imageView image];
     NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
     
-    if([messageType isEqualToString:@"new-notification.png"]){
-        IndividualNotificationViewController * notificationViewController = [[IndividualNotificationViewController alloc]initWithNibName:@"IndividualNotificationViewController" bundle:nil];
-        [notificationViewController setTitle:@"Invite"];
-        //specific customization
-        
-        NSString * from = [NSString stringWithFormat:@"From: %@", [self capitalizeFirstLetter:cell.detailTextLabel.text]];
-        //NSString * from = [NSString stringWithFormat:@"From: %@",cell.detailTextLabel.text];
-        NSString * title = [NSString stringWithFormat:@"Join my Memory Capsule"];
-        NSString * messageBody = cell.textLabel.text;
-        NSLog(@"Message type: %@", messageType);
-        //from = [self capitalizeFirstLetter:from];
-        
-        [self.navigationController pushViewController:notificationViewController animated:YES];
-        [notificationViewController passCustomData:capsuleIdentifiers[indexPath.row] forHeader1:from forHeader2:title forMessageBox:messageBody]; //  passCustomData:@"test" //forHeader1:from forHeader2:title forMessageBox:messageBody acceptBtnLabel:@"join" disregardBtnLabel:@"not now"];//setDefaultViewComponents:@"test" forHeader2:@"test"  forMessageBox:@"test"  acceptBtn:@"test" disregardBtn:@"test" ];
+    if([messageType isEqualToString:@"new-notification.png"] || [messageType isEqualToString:@"notification.png"]){
+        [self inviteMessageView:indexPath cell:cell ofType:messageType];
     }
     
     // Navigation logic may go here. Create and push another view controller.
@@ -264,10 +253,24 @@
 #pragma mark - Helper functions
 
 -(NSString *) capitalizeFirstLetter:(NSString *)text{
-    
     text = [text stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[text substringToIndex:1] uppercaseString]];
-    NSLog(@"Capitalization:  %@",text);
     return text;
 }
+
+-(void) inviteMessageView: (NSIndexPath *) indexPath cell: (UITableViewCell *) cell ofType: (NSString *) messageType{
+    IndividualNotificationViewController * notificationViewController = [[IndividualNotificationViewController alloc]initWithNibName:@"IndividualNotificationViewController" bundle:nil];
+    [notificationViewController setTitle:@"Invite"];
+    
+    //customization
+    NSString * from = [NSString stringWithFormat:@"From: %@", [self capitalizeFirstLetter:cell.detailTextLabel.text]];
+    //NSString * from = [NSString stringWithFormat:@"From: %@",cell.detailTextLabel.text];
+    NSString * title = [NSString stringWithFormat:@"Join:   %@",capsuleIdentifiers[indexPath.row]];
+    NSString * messageBody = cell.textLabel.text;
+    NSLog(@"Message type: %@", messageType);
+    [self.navigationController pushViewController:notificationViewController animated:YES];
+    [notificationViewController passCustomData:capsuleIdentifiers[indexPath.row] forHeader1:from forHeader2:title forMessageBox:messageBody]; 
+}
+
+
 
 @end

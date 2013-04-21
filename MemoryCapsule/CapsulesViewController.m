@@ -31,6 +31,11 @@
     
     [self.tableView setAllowsSelection:YES];
     self.tableView.delegate = self;
+    //self.createNewCapsuleButton.bounds.size.x
+    //[self.createNewCapsuleButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    //[self.createNewCapsuleButton setBounds:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    //[self.createNewCapsuleButton setBounds:CGRectMake(self.createNewCapsuleButton.bounds.origin.x+ 1000, self.createNewCapsuleButton.bounds.origin.y, 200, self.createNewCapsuleButton.bounds.size.height)];
 }
 
 
@@ -151,10 +156,8 @@
     PFUser * user = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"CapsulesList"];
     [query whereKey:@"userName" equalTo: [user username]];
-    //NSLog(@"%@", [PFUser currentUser]);
     NSArray * reqQuery = [query findObjects];
     capsulesList = [[reqQuery valueForKey:@"capsules"] objectAtIndex: 0];
-    NSLog(@"Found %i capsules", [capsulesList count]);
     return [[[reqQuery valueForKey:@"capsules"] objectAtIndex:0] count];
     
 }
@@ -169,8 +172,6 @@
 
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //NSLog(@"this shit was called");
     
     UITableViewCell * currentCell = nil;
     
@@ -192,8 +193,7 @@
         if (!error) {
             // The find succeeded.
             NSLog(@"Successfully retrieved %d images.", imagesArray.count);
-            
-            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%d images", imagesArray.count];
+            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", imagesArray.count];
             
         } else {
             // Log details of the failure

@@ -8,7 +8,9 @@
 
 #import "ImagesViewController.h"
 
-@interface ImagesViewController ()
+@interface ImagesViewController (){
+    PFUser * user;
+}
 
 #define PADDING_TOP 0 // For placing the images nicely in the grid
 #define PADDING 4
@@ -19,6 +21,8 @@
 @end
 
 @implementation ImagesViewController
+
+
 @synthesize inviteFriendsToCapsuleButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil capsuleName:(NSString *)capsuleNameOrNil
@@ -28,9 +32,10 @@
         // Custom initialization
     }
     
-    capsuleName = capsuleNameOrNil;
+    // Set current user
+    user = [PFUser currentUser];
     
-    NSLog(@"capsuleName is: %@", capsuleName);
+    capsuleName = capsuleNameOrNil;
     
     return self;
 }
@@ -65,7 +70,8 @@
     
     InviteFriendsToCapsuleViewController *inviteFriendsToCapsuleViewController = [[InviteFriendsToCapsuleViewController alloc] initWithNibName:@"InviteFriendsToCapsuleViewController" bundle:nil];
     
-    [inviteFriendsToCapsuleViewController setTitle:@"Select Friends"];
+    UINavigationController * navBar = [self.navigationController.viewControllers objectAtIndex:1];
+    [inviteFriendsToCapsuleViewController setTitle:navBar.title];
     
     [self.navigationController pushViewController:inviteFriendsToCapsuleViewController animated:YES];
 }
@@ -267,31 +273,31 @@
         int r = arc4random() % 9;
         switch (r) {
             case 0:
-                image = [UIImage imageNamed:@"ParseLogo.jpg"];
+                image = [UIImage imageNamed:@"default.jpg"];
                 break;
             case 1:
-                image = [UIImage imageNamed:@"Crowd.jpg"];
+                image = [UIImage imageNamed:@"default2.jpg"];
                 break;
             case 2:
-                image = [UIImage imageNamed:@"Desert.jpg"];
+                image = [UIImage imageNamed:@"default3.jpg"];
                 break;
             case 3:
-                image = [UIImage imageNamed:@"Lime.jpg"];
+                image = [UIImage imageNamed:@"default4.jpg"];
                 break;
             case 4:
-                image = [UIImage imageNamed:@"Sunflowers.jpg"];
+                image = [UIImage imageNamed:@"default5.jpg"];
                 break;
             case 5:
-                image = [UIImage imageNamed:@"rick-james.jpg"];
+                image = [UIImage imageNamed:@"default6.jpg"];
                 break;
             case 6:
-                image = [UIImage imageNamed:@"rick-james2.jpg"];
+                image = [UIImage imageNamed:@"default7.jpg"];
                 break;
             case 7:
-                image = [UIImage imageNamed:@"rick-james3.jpg"];
+                image = [UIImage imageNamed:@"default8.jpg"];
                 break;
             case 8:
-                image = [UIImage imageNamed:@"tyrone-biggums.jpg"];
+                image = [UIImage imageNamed:@"default9.jpg"];
                 break;
             default:
                 break;
@@ -353,7 +359,6 @@
             userPhoto.ACL = postACL;
             //[publicPost saveInBackground];
             
-            PFUser *user = [PFUser currentUser];
             [userPhoto setObject:user forKey:@"user"];
             [userPhoto setObject:capsuleName forKey:@"capsuleName"];
             
@@ -378,6 +383,8 @@
         //HUD.progress = (float)percentDone/100;
     }*/];
 }
+
+
 
 
 @end

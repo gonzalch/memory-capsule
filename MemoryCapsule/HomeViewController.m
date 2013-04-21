@@ -35,9 +35,9 @@
 - (void)viewDidLoad
 {
     viewList = [[NSMutableArray alloc] initWithObjects:@"Capsules", @"Friends",@"Notifications", @"Map", nil];
-    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"Invite friend",@"Accept invitation", nil];
+    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"E-mail friends about this app",@"Accept invitation", nil];
     viewListImg = [[NSArray alloc] initWithObjects:@"jar-32.png", @"friend.png",@"inbox-document-icon.png",@"app-map-icon.png", nil];
-    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus.png",@"friend-add2.png",@"friend-confirm.png",nil ];
+    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus.png",@"notification.png",@"friend-confirm.png",nil ];
     
     
     [self.tableView setAllowsSelection:YES];
@@ -78,7 +78,7 @@
         [super goToCreateCapsuleView];
     }
     
-    else if ([selectedRow isEqualToString: @"Invite friend"]){
+    else if ([selectedRow isEqualToString: @"E-mail friends about this app"]){
         [super gotoInviteFriendView];
     }
     

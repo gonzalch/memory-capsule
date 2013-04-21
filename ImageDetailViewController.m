@@ -34,6 +34,8 @@
     
     self.imageView.image = selectedImage;
     
+    self.title = @"Add comments";
+    
      [deleteImageButton addTarget:self action:@selector(deleteImageButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 

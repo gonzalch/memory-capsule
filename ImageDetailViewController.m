@@ -7,6 +7,7 @@
 //
 
 #import "ImageDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ImageDetailViewController ()
 
@@ -34,9 +35,14 @@
     
     self.imageView.image = selectedImage;
     
-    self.title = @"Add comments";
+    self.title = @"Comments";
     
-     [deleteImageButton addTarget:self action:@selector(deleteImageButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Delete button customization
+    [deleteImageButton addTarget:self action:@selector(deleteImageButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [[deleteImageButton layer] setCornerRadius:10];
+    [[deleteImageButton layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+    [[deleteImageButton layer] setBorderWidth:2];
 }
 
 - (void)deleteImageButtonTapped:(id)sender

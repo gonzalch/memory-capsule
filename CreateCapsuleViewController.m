@@ -9,6 +9,13 @@
 #import "CreateCapsuleViewController.h"
 
 @interface CreateCapsuleViewController ()
+
+// Text field tag identifiers
+enum{
+    capsuleNameTag = 0,
+    capsuleLocationTag = 1
+};
+
 @end
 
 @implementation CreateCapsuleViewController
@@ -20,8 +27,10 @@
 @synthesize dateToolbarLock;
 @synthesize datePickerOpen;
 @synthesize dateToolbarOpen;
+@synthesize capsuleLocation;
 
 NSString *newCapsuleName;
+CLLocationCoordinate2D  newCapsuleLocation;
 NSString *newDateLock;
 NSString *newDateOpen;
 NSDate *dateSelectedLock;
@@ -118,9 +127,17 @@ NSDate *dateSelectedOpen;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"You entered %@",textField.text);
-    
-    newCapsuleName = textField.text;
+    NSLog(@"Sender %i entered %@", textField.tag, textField.text);
+    switch(textField.tag){
+        case 0:
+            newCapsuleName = textField.text;
+            break;
+        case 1:
+            [self computeLatLongForGivenLocation:textField.text];
+            break;
+        default:
+            return NO;
+    }
     
     [textField resignFirstResponder];
     return YES;
@@ -128,31 +145,27 @@ NSDate *dateSelectedOpen;
 
 -  (IBAction)createButtonPressed:(id)sender
 {
-    
-    
     // bug note: MAKE SURE YOU CLICK RETURN ON UITEXTFIELD OR ELSE QUERY WILL CRASH APP 
-    
     NSLog(@"CreateButtonPressed");
+    
+    // Link new capsule into the CapsulesList
     PFUser *user = [PFUser currentUser];
-    //NSArray *array = [NSArray arrayWithObjects:newCapsuleName, nil];
     PFQuery *query = [PFQuery queryWithClassName:@"CapsulesList"];
     [query whereKey:@"userName" equalTo:[user username]];
     PFObject *newCapsule = [query getFirstObject];
-    //PFObject *newCapsule = [PFObject objectWithClassName:@"CapsulesList"];
     [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:newCapsuleName, nil] forKey:@"capsules"];
     [newCapsule setObject:[user username] forKey:@"userName"];
     [newCapsule save];
-    //[self.navigationController popViewControllerAnimated:YES];
     
-        
-    //PFQuery *queryCapsule = [PFQuery queryWithClassName:@"Capsule"];
-    //[query whereKey:@"userName" equalTo:[user username]];
-    //PFObject *newCapsule = [query getFirstObject];
+    //Convert our latlong into a pfpoint
+    PFGeoPoint *pfCapsuleLocation = [PFGeoPoint geoPointWithLatitude:newCapsuleLocation.latitude
+                           longitude:newCapsuleLocation.longitude];
+    
+    //Save new capsule into the Capsule table
     PFObject *newCapsuleObject = [PFObject objectWithClassName:@"Capsule"];
-    //[newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:newCapsuleName, nil] forKey:@"capsules"];
-    //[newCapsule setObject:[user username] forKey:@"userName"];
     [newCapsuleObject setObject:[user username] forKey:@"createdBy"];
     [newCapsuleObject setObject:newCapsuleName forKey:@"capsuleName"];
+    [newCapsuleObject setObject:pfCapsuleLocation forKey:@"location"];
     [newCapsuleObject setObject:dateSelectedLock forKey:@"lockDate"];
     [newCapsuleObject setObject:dateSelectedOpen forKey:@"openDate"];
     [newCapsuleObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
@@ -164,12 +177,29 @@ NSDate *dateSelectedOpen;
 }
 
 
+# pragma mark - Helper functions
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) computeLatLongForGivenLocation: (NSString *)address{
+    double latitude = 0, longitude = 0;
+    NSString *esc_addr =  [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
+    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:req] encoding:NSUTF8StringEncoding error:NULL];
+    if (result) {
+        NSScanner *scanner = [NSScanner scannerWithString:result];
+        if ([scanner scanUpToString:@"\"lat\" :" intoString:nil] && [scanner scanString:@"\"lat\" :" intoString:nil]) {
+            [scanner scanDouble:&latitude];
+            if ([scanner scanUpToString:@"\"lng\" :" intoString:nil] && [scanner scanString:@"\"lng\" :" intoString:nil]) {
+                [scanner scanDouble:&longitude];
+            }
+        }
+    }
+    CLLocationCoordinate2D center;
+    center.latitude = latitude;
+    center.longitude = longitude;
+    NSLog(@"Lat: %f, Long: %f", latitude, longitude);
+    newCapsuleLocation = center;
 }
+
 
 @end
 

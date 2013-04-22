@@ -17,6 +17,6 @@
 
 -(IBAction)logoutButtonPressed:(id)sender;
 -(void) animateTabBarTransition:(NSInteger) destinationTabIdx;
--(void) gotoInviteFriendView;
--(void) goToCreateCapsuleView;
+-(void) push_InviteFriendView;
+-(void) push_CreateCapsuleView;
 @end

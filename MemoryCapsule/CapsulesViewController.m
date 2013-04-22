@@ -41,7 +41,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"CapsulesViewController -> viewWillAppear called");
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
@@ -140,7 +139,6 @@
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString * selectedRow = cell.textLabel.text;
-    NSLog(@"selected row for %@", selectedRow);
     
     ImagesViewController *imagesViewController = [[ImagesViewController alloc] initWithNibName:@"ImagesViewController" bundle:nil capsuleName:cell.textLabel.text];
     
@@ -149,8 +147,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    NSLog(@"Querying database for capsuleslist");
     
     //parse in list of capsules for current user
     PFUser * user = [PFUser currentUser];
@@ -165,7 +161,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch(section){
         case 0: return @"Capsules"; break;
-        default: return @"I assure you, I'm not on crack!";
+        default: return @"Error!";
     }
 }
 
@@ -186,7 +182,6 @@
     
     //Depending on our current section, populate the cells
     currentCell.textLabel.text = capsulesList[indexPath.row];
-    
     PFQuery *imagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
     [imagesQuery whereKey:@"capsuleName" equalTo:capsulesList[indexPath.row]];
     [imagesQuery findObjectsInBackgroundWithBlock:^(NSArray *imagesArray, NSError *error) {

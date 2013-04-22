@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "NotificationsController.h"
+#import "FriendsViewController.h"
+#import "CapsulesViewController.h"
+#import "CapsuleMapViewController.h"
 
 @interface HomeViewController : ViewController <UITableViewDelegate>{
     
@@ -21,6 +24,6 @@
 @property (nonatomic, retain) NSArray * addListImg;
 
 
--(IBAction)goto_friendsView:(id)sender;
+-(IBAction)push_friendsView:(id)sender;
 
 @end

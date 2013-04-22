@@ -9,7 +9,9 @@
 #import "HomeViewController.h"
 
 
-@interface HomeViewController ()
+@interface HomeViewController (){
+    PFUser * user;
+}
 
 @end
 
@@ -34,18 +36,24 @@
 
 - (void)viewDidLoad
 {
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    //user
+    user = [PFUser currentUser];
+    
     viewList = [[NSMutableArray alloc] initWithObjects:@"Capsules", @"Friends",@"Notifications", @"Map", nil];
-    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"E-mail friends about this app",@"Accept invitation", nil];
+    addList = [[NSMutableArray alloc] initWithObjects: @"New Capsule", @"Tell friends about this app", nil];
     viewListImg = [[NSArray alloc] initWithObjects:@"jar-32.png", @"friend.png",@"inbox-document-icon.png",@"app-map-icon.png", nil];
-    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus.png",@"notification.png",@"friend-confirm.png",nil ];
+    addListImg = [[NSArray alloc] initWithObjects: @"jar-plus.png",@"notification.png",nil ];
     
     
     [self.tableView setAllowsSelection:YES];
     self.tableView.delegate = self;
     //self.tableView.dataSource = self;
     
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
 }
 
 
@@ -66,7 +74,7 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString * selectedRow = cell.textLabel.text;
     
-    if([selectedRow  isEqual: @"Friends"]){
+    if([selectedRow  isEqualToString: @"Friends"]){
         [super animateTabBarTransition:2];
     }
     
@@ -75,18 +83,21 @@
     }
     
     if ([selectedRow isEqualToString: @"New Capsule"]){
-        [super goToCreateCapsuleView];
+        [super push_CreateCapsuleView];
     }
     
-    else if ([selectedRow isEqualToString: @"E-mail friends about this app"]){
-        [super gotoInviteFriendView];
+    else if ([selectedRow isEqualToString: @"Tell friends about this app"]){
+        [super push_InviteFriendView];
     }
     
     else if ([selectedRow isEqualToString: @"Notifications"]){
-        [self goto_notificationsView];
+        [self push_notificationsView];
     }
 
-    
+    else if([selectedRow isEqualToString:@"Map"]){
+        [self push_MapView];
+    }
+
 }
 
 
@@ -96,7 +107,7 @@
     switch(section){
         case 0: return [viewList count]; break;
         case 1: return [addList count]; break;
-        default: NSLog(@"My friend, you are on crack!"); return 999;
+        default: NSLog(@"Error"); return 999;
     }
 }
 
@@ -104,8 +115,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch(section){
         case 0: return @"View"; break;
-        case 1: return @"Add";break;
-        default: return @"My friend, you are on crack!";
+        case 1: return @"New";break;
+        default: return @"There should only be sections on this tableView!";
     }
 }
 
@@ -129,14 +140,55 @@
     //Depending on our current section, populate the cells
     NSString * imageName;
     switch(indexPath.section){
-        case 0: currentCell.textLabel.text = [viewList objectAtIndex:indexPath.row];
+            // View
+        case 0:
+            currentCell.textLabel.text = [viewList objectAtIndex:indexPath.row];
+            currentCell.detailTextLabel.text = nil;
+            currentCell.accessoryType = UITableViewCellAccessoryNone;
             imageName = [viewListImg objectAtIndex:indexPath.row];
             currentCell.imageView.image = [UIImage imageNamed:imageName];
             break;
-        case 1: currentCell.textLabel.text = [addList objectAtIndex:indexPath.row];
+        
+            // New
+        case 1:
+            currentCell.textLabel.text = [addList objectAtIndex:indexPath.row];
+            currentCell.detailTextLabel.text = nil;
             imageName = [addListImg objectAtIndex:indexPath.row];
             currentCell.imageView.image = [UIImage imageNamed:imageName];
             break;
+    }
+    
+    //Capsule cell
+    if([currentCell.textLabel.text isEqualToString:@"Capsules"]){
+        PFQuery * capsules = [PFQuery queryWithClassName:@"Capsule"];
+        [capsules whereKey:@"createdBy"equalTo:user.username];
+        currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i",[capsules countObjects]];
+        //currentCell.accessoryView =  [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"rotate.png" ]];
+    }
+    
+    //Friends cell
+    else if([currentCell.textLabel.text isEqualToString:@"Friends"]){
+        PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
+        [query whereKey:@"userName" equalTo: [user username]];
+        NSArray * reqQuery = [query findObjects];
+        //friendsList = [[reqQuery valueForKey:@"friends"] objectAtIndex: 0];
+        int friendsCount = [[[reqQuery valueForKey:@"friends"] objectAtIndex:0] count];
+        currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i", friendsCount];
+    }
+    
+    
+    
+    //Notifications cell
+    if([currentCell.textLabel.text isEqualToString:@"Notifications"]){
+        PFQuery * unreadMessagesQuery = [PFQuery queryWithClassName:@"Notifications"];
+        [unreadMessagesQuery whereKey:@"to" equalTo:user.username];
+        //[unreadMessagesQuery whereKey:@"read" equalTo:[NSNumber numberWithBool:NO]];
+        int unreadMessagesTally = [unreadMessagesQuery countObjects];
+        if(unreadMessagesTally > 0){
+            currentCell.imageView.image = [UIImage imageNamed:@"inbox-document-new.png"];
+        }
+        currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i",unreadMessagesTally];
+        
     }
     
     return currentCell;
@@ -147,22 +199,27 @@
 
 #pragma mark - IBAction methods
 
--(IBAction)goto_friendsView:(id)sender{
+-(IBAction)push_friendsView:(id)sender{
+    FriendsViewController * friendsViewController = [[FriendsViewController alloc]initWithNibName:@"FriendsViewController" bundle:nil];
+    [self.navigationController pushViewController:friendsViewController animated:YES];
     [self.tabBarController setSelectedIndex:2];
 }
 
--(IBAction)goto_capsulesView:(id)sender{
+-(IBAction)push_capsulesView:(id)sender{
     [self.tabBarController setSelectedIndex:1];
 }
 
 
--(IBAction) goto_notificationsView{
+-(IBAction) push_notificationsView{
     
     NotificationsController * notificationsViewController = [[NotificationsController alloc]initWithStyle:UITableViewStyleGrouped];
-    
-    //NotificationsViewController * notificationsViewController = [[NotificationsViewController alloc]initWithStyle:UITableViewStyleGrouped]; //ViewController * notificationsViewController = [[NotificationsViewController alloc] initWithClassName:@"Notifications"];
-                                                                 //initWithNibName:@"NotificationsViewController" bundle:nil];
     [self.navigationController pushViewController:notificationsViewController animated:YES];
+}
+
+
+-(IBAction) push_MapView{
+    CapsuleMapViewController * mapViewController = [[CapsuleMapViewController alloc] initWithNibName:@"CapsuleMapViewController" bundle:nil];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 -(IBAction) animateView: (id) sender{

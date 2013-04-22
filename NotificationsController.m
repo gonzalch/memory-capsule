@@ -126,7 +126,7 @@
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Capsule Requests";
+    return @"Capsule Invites";
 }
 
 
@@ -157,6 +157,7 @@
     }
     cell.textLabel.text = [object objectForKey:@"message"];
     cell.detailTextLabel.text = [object objectForKey:@"from"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 

@@ -30,13 +30,15 @@
     [acceptInviteButton addTarget: self action:@selector(acceptInviteButtonPressed:)forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableView setAllowsSelection:YES];
+    
     self.tableView.delegate = self;
+    
+
     
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"FriendsViewController -> viewWillAppear called");
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
@@ -67,18 +69,10 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {    //
-    
-    NSLog(@"didSelectRowAtIndexPath called");
-    
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath { 
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString * selectedRow = cell.textLabel.text;
     NSLog(@"selected row for %@", selectedRow);
-    //if([selectedRow  isEqual: @"Friends"]){
-    //    [super animateTabBarTransition:2];
-    //}
-    
-    
 }
 
 
@@ -89,7 +83,6 @@
     [query whereKey:@"userName" equalTo: [user username]];
     NSArray * reqQuery = [query findObjects];
     friendsList = [[reqQuery valueForKey:@"friends"] objectAtIndex: 0];
-    NSLog(@"Found %i friends", [friendsList count]);
     return [[[reqQuery valueForKey:@"friends"] objectAtIndex:0] count];
 }
 
@@ -98,7 +91,7 @@
     NSLog(@"titleForHeaderInSection called");
     switch(section){
         case 0: return @"Friends"; break;
-        default: return @"My friend, you are on crack!";
+        default: return @"Error!";
     }
 }
 

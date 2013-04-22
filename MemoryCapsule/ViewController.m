@@ -44,11 +44,8 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    NSLog(@"TabViewController: %@", self.title);
     [super viewDidAppear:animated];
-    
-    
-    
+
     // Set userName label
     if([PFUser currentUser]){
         PFUser * currentUser = [PFUser currentUser];
@@ -131,14 +128,14 @@
 
 
 
--(void) gotoInviteFriendView{
+-(void) push_InviteFriendView{
     InviteViewController * inviteFriendsViewContoller = [[InviteViewController alloc]
                                                          initWithNibName:@"InviteViewController" bundle:nil];
     [inviteFriendsViewContoller setTitle:@"E-mail Invite"];
     [self.navigationController pushViewController:inviteFriendsViewContoller animated:YES];
 }
 
--(void) goToCreateCapsuleView{
+-(void) push_CreateCapsuleView{
     CreateCapsuleViewController * createCapsuleViewContoller = [[CreateCapsuleViewController alloc]
                                                                 initWithNibName:@"CreateCapsuleViewController" bundle:nil];
     [createCapsuleViewContoller setTitle:@"Create capsule"];

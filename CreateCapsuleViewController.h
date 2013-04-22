@@ -15,9 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *openDate;
 @property (nonatomic,strong) IBOutlet UIDatePicker *datePickerLock;
 @property (nonatomic, retain) UIToolbar *dateToolbarLock;
-
 @property (strong, nonatomic) IBOutlet UITextField *capsuleLocation;
-
 @property (nonatomic,strong) IBOutlet UIDatePicker *datePickerOpen;
 @property (nonatomic, retain) UIToolbar *dateToolbarOpen;
 

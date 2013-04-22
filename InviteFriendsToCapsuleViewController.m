@@ -60,7 +60,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"Subscribed to %@", capsuleName];
+    return [NSString stringWithFormat:@"Subscribed to '%@'", capsuleName];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
@@ -176,7 +176,7 @@
         [notification setObject:newSubscriptions[i] forKey:@"to"];
         [notification setObject:capsuleName forKey:@"identifier"];
         [notification setObject:@"invitation" forKey:@"type"];
-        [notification setObject:[NSString stringWithFormat:@"Hey %@, why don't you join my memory capsule '%@'? We want you to participate and add some pictures and notes. Do hurry, this capsule will be sealed and burried soon...  ", newSubscriptions[i], capsuleName] forKey:@"message"];
+        [notification setObject:[NSString stringWithFormat:@"Hey %@, why don't you join my memory capsule '%@'? Do hurry to throw in some pictures and notes, this capsule will be sealed and burried soon...  ", newSubscriptions[i], capsuleName] forKey:@"message"];
         [notification setObject:[NSNumber numberWithBool:FALSE] forKey:@"read"];
         NSLog(@"Invitation sent for: %@", newSubscriptions[i]);
         [notification save];

@@ -19,6 +19,13 @@
 		83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */; };
 		83827BE31714D94900739A87 /* InviteFriendsToCapsuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */; };
 		EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21090716FA47CB0074B34E /* Parse.framework */; };
+		EA240DC717249B5300CBA842 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = EA240DC617249B5300CBA842 /* alert.png */; };
+		EA240DC91724A1BB00CBA842 /* inbox-document-new.png in Resources */ = {isa = PBXBuildFile; fileRef = EA240DC81724A1BB00CBA842 /* inbox-document-new.png */; };
+		EA240DD71724AF0800CBA842 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA240DD41724AF0800CBA842 /* DetailViewController.m */; };
+		EA240DDA1724AF5700CBA842 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA240DD91724AF5700CBA842 /* MapKit.framework */; };
+		EA240DDE1724AFE700CBA842 /* CapsuleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA240DDC1724AFE600CBA842 /* CapsuleMapViewController.m */; };
+		EA240DDF1724AFE700CBA842 /* CapsuleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA240DDD1724AFE700CBA842 /* CapsuleMapViewController.xib */; };
+		EA240DE21724C48B00CBA842 /* GeoPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA240DE11724C48B00CBA842 /* GeoPointAnnotation.m */; };
 		EA29A332171F6DAC00C73114 /* IndividualNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29A330171F6DAC00C73114 /* IndividualNotificationViewController.m */; };
 		EA29A333171F6DAC00C73114 /* IndividualNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA29A331171F6DAC00C73114 /* IndividualNotificationViewController.xib */; };
 		EA29A33B17208E1100C73114 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29A33A17208E1100C73114 /* NotificationsController.m */; };
@@ -137,6 +144,16 @@
 		83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsToCapsuleViewController.m; sourceTree = "<group>"; };
 		83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteFriendsToCapsuleViewController.xib; sourceTree = "<group>"; };
 		EA21090716FA47CB0074B34E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		EA240DC617249B5300CBA842 /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
+		EA240DC81724A1BB00CBA842 /* inbox-document-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inbox-document-new.png"; sourceTree = "<group>"; };
+		EA240DD31724AF0800CBA842 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EA240DD41724AF0800CBA842 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EA240DD91724AF5700CBA842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EA240DDB1724AFE600CBA842 /* CapsuleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleMapViewController.h; sourceTree = "<group>"; };
+		EA240DDC1724AFE600CBA842 /* CapsuleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleMapViewController.m; sourceTree = "<group>"; };
+		EA240DDD1724AFE700CBA842 /* CapsuleMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CapsuleMapViewController.xib; sourceTree = "<group>"; };
+		EA240DE01724C48B00CBA842 /* GeoPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPointAnnotation.h; sourceTree = "<group>"; };
+		EA240DE11724C48B00CBA842 /* GeoPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPointAnnotation.m; sourceTree = "<group>"; };
 		EA29A32F171F6DAC00C73114 /* IndividualNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualNotificationViewController.h; sourceTree = "<group>"; };
 		EA29A330171F6DAC00C73114 /* IndividualNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualNotificationViewController.m; sourceTree = "<group>"; };
 		EA29A331171F6DAC00C73114 /* IndividualNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndividualNotificationViewController.xib; sourceTree = "<group>"; };
@@ -264,6 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA240DDA1724AF5700CBA842 /* MapKit.framework in Frameworks */,
 				EABE1BF316FA5CF5008DAE00 /* MessageUI.framework in Frameworks */,
 				EA21090816FA47CB0074B34E /* Parse.framework in Frameworks */,
 				EA683A3016EFF3EB000BF949 /* SystemConfiguration.framework in Frameworks */,
@@ -284,17 +302,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA240DCA1724AA3100CBA842 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				EA240DD31724AF0800CBA842 /* DetailViewController.h */,
+				EA240DD41724AF0800CBA842 /* DetailViewController.m */,
+				EA240DDB1724AFE600CBA842 /* CapsuleMapViewController.h */,
+				EA240DDC1724AFE600CBA842 /* CapsuleMapViewController.m */,
+				EA240DDD1724AFE700CBA842 /* CapsuleMapViewController.xib */,
+				EA240DE01724C48B00CBA842 /* GeoPointAnnotation.h */,
+				EA240DE11724C48B00CBA842 /* GeoPointAnnotation.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		EA36396B16E84F3900970068 = {
 			isa = PBXGroup;
 			children = (
-				EABE1B8F16FA511A008DAE00 /* Images */,
+				EA240DD91724AF5700CBA842 /* MapKit.framework */,
 				EABE1B8816FA4E73008DAE00 /* Documentation */,
-				EA683A9616F19624000BF949 /* Friends */,
 				EA683A9516F1961D000BF949 /* Capsule */,
+				EA683A9616F19624000BF949 /* Friends */,
 				EA683A8E16F17FE4000BF949 /* Home */,
-				EA7355641717796E00C1FDC9 /* Notifications */,
+				EABE1B8F16FA511A008DAE00 /* Images */,
 				EA683A4116F058FD000BF949 /* Login */,
+				EA240DCA1724AA3100CBA842 /* Map */,
 				EA36397D16E84F3900970068 /* MemoryCapsule */,
+				EA7355641717796E00C1FDC9 /* Notifications */,
 				EA36397616E84F3900970068 /* Frameworks */,
 				EA36397516E84F3900970068 /* Products */,
 			);
@@ -437,6 +471,8 @@
 		EABE1B8F16FA511A008DAE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EA240DC81724A1BB00CBA842 /* inbox-document-new.png */,
+				EA240DC617249B5300CBA842 /* alert.png */,
 				EABE1B9016FA511A008DAE00 /* add-friend.png */,
 				EABE1B9116FA511A008DAE00 /* add-icon.png */,
 				EABE1B9216FA511A008DAE00 /* app-icon-114px.png */,
@@ -657,6 +693,9 @@
 				EA29A34A172328F600C73114 /* default7.jpg in Resources */,
 				EA29A34B172328F600C73114 /* default8.jpg in Resources */,
 				EA29A34D17234F8E00C73114 /* groupedBackground.jpg in Resources */,
+				EA240DC717249B5300CBA842 /* alert.png in Resources */,
+				EA240DC91724A1BB00CBA842 /* inbox-document-new.png in Resources */,
+				EA240DDF1724AFE700CBA842 /* CapsuleMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +721,9 @@
 				83827BE21714D94900739A87 /* InviteFriendsToCapsuleViewController.m in Sources */,
 				EA29A332171F6DAC00C73114 /* IndividualNotificationViewController.m in Sources */,
 				EA29A33B17208E1100C73114 /* NotificationsController.m in Sources */,
+				EA240DD71724AF0800CBA842 /* DetailViewController.m in Sources */,
+				EA240DDE1724AFE700CBA842 /* CapsuleMapViewController.m in Sources */,
+				EA240DE21724C48B00CBA842 /* GeoPointAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

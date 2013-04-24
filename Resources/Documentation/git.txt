@@ -1,0 +1,9 @@
+commit: 
+    git commit -a -m "Minor cosmetic fixes to friendsView"
+
+push: git push
+    git push
+
+resolve a conflict:
+    git add <conflictingFileName>
+

@@ -67,19 +67,28 @@
 {
     NSArray *index = [[NSArray alloc]initWithObjects:indexPath, nil];
     
-    NSLog(@"Deleting capsule %@", [capsulesList objectAtIndex:indexPath.row]);
+    NSString *deleteName = [capsulesList objectAtIndex:indexPath.row];
+    
+    NSLog(@"Deleting capsule %@", deleteName);
     
     // delete Capsule object from database
     PFQuery *deleteCapsuleQuery = [PFQuery queryWithClassName:@"Capsule"];
-    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:deleteName];
     PFObject *deleteCapsule = [deleteCapsuleQuery getFirstObject];
     [deleteCapsule deleteInBackground]; // deletes capsule from database
     
-    /*
-    // delete capsuleName from capsules array in CapsulesList in database
-    //PFUser * user = [PFUser currentUser];
+    
+    // delete capsuleName from capsules array in users CapsulesList in database
+    PFUser * user = [PFUser currentUser];
+    PFQuery *deleteCapsuleFromUserQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [deleteCapsuleFromUserQuery whereKey:@"userName" equalTo:[user username]];
+    PFObject *deleteCapsuleFromList = [deleteCapsuleFromUserQuery getFirstObject];
+    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
+    [deleteCapsuleFromList save];
+    
+    // delete capsuleName from capsules array in everyone elses CapsulesList in database
     PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
-    //[deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
+    [deleteCapsuleFromListQuery whereKey:@"userName" notEqualTo:[user username]];
     [deleteCapsuleFromListQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteCapsuleObjects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -87,7 +96,12 @@
             
             if (deleteCapsuleObjects.count > 0) {
                 for (PFObject *eachObject in deleteCapsuleObjects) {
-                    [eachObject removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
+                    
+                    NSLog(@"%@ deleting capsule %@", [eachObject objectForKey:@"userName"], deleteName);
+                    
+                    [eachObject removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
+                    
+                    [eachObject save];
                 }
             }
             
@@ -96,18 +110,11 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-     */
-
-    /*
-    PFObject *deleteCapsuleFromList = [deleteCapsuleFromListQuery getFirstObject];
-    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
-    [deleteCapsuleFromList save];
-    */
-    //PFQuery *deleteCapsuleFromEveryone = [PFQuery queryWithClassName:<#(NSString *)#>]
+     
     
     // delete images that belonged to the capsule in database
     PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
-    [deleteImagesQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo:deleteName];
     [deleteImagesQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteImagesArray, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -129,8 +136,8 @@
     // delete capsule name from tableview datasource array
     [capsulesList removeObjectAtIndex:indexPath.row];
     
-    // deletes capsule cell from tableview
-    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone]; 
+    // delete capsule cell from tableview
+    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone];
     [self.tableView reloadData];
 }
 
@@ -190,29 +197,32 @@
         
     capsulesList = [[reqQuery valueForKey:@"capsules"] objectAtIndex: 0];
     
-    for (NSString *eachCapsule in capsulesList) {
-        
-        PFQuery *dateQuery = [PFQuery queryWithClassName:@"Capsule"];
-        [dateQuery whereKey:@"capsuleName" equalTo:eachCapsule];
-        PFObject *dateObject = [dateQuery getFirstObject];
-        
-        NSDate *lockDate = [dateObject valueForKey:@"lockDate"];
-        NSDate *openDate = [dateObject valueForKey:@"openDate"];
-
-        
-        if ([lockDate timeIntervalSinceNow] < 1 && [openDate timeIntervalSinceNow] > 0) {
-            //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
+    if (capsulesList.count > 0) {
+        for (NSString *eachCapsule in capsulesList) {
             
-            [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
-            [dateObject save];
-        }
-        
-        else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
-            //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
-            [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
-            [dateObject save];
+            PFQuery *dateQuery = [PFQuery queryWithClassName:@"Capsule"];
+            [dateQuery whereKey:@"capsuleName" equalTo:eachCapsule];
+            PFObject *dateObject = [dateQuery getFirstObject];
+            
+            NSDate *lockDate = [dateObject valueForKey:@"lockDate"];
+            NSDate *openDate = [dateObject valueForKey:@"openDate"];
+            
+            
+            if ([lockDate timeIntervalSinceNow] < 1 && [openDate timeIntervalSinceNow] > 0) {
+                //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
+                
+                [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
+                [dateObject save];
+            }
+            
+            else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
+                //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
+                [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
+                [dateObject save];
+            }
         }
     }
+    
 
     return [[[reqQuery valueForKey:@"capsules"] objectAtIndex:0] count];
     

@@ -11,6 +11,7 @@
 @implementation NotificationsController{
     PFUser * user;
     NSMutableArray * capsuleIdentifiers;
+    NSMutableArray * messageType;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -22,6 +23,8 @@
         user = [PFUser currentUser];
         
         capsuleIdentifiers = [[NSMutableArray alloc]init];
+        
+        messageType = [[NSMutableArray alloc] init];
         
         self.title = @"Inbox";
     
@@ -45,6 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -134,27 +138,38 @@
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     NSLog(@"CellForRowAtIndexPath called");
+    
     static NSString *CellIdentifier = @"currentCell";
     UITableViewCell *cell;// = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell
+    
+
     NSString * hasBeenRead = [NSString stringWithFormat:@"%@",[object objectForKey: @"read"]];
     NSString * capsuleName = [object objectForKey:@"identifier"];
     NSLog(@"%@ , indexPath %i",capsuleName,indexPath.row);
     [capsuleIdentifiers setObject:capsuleName atIndexedSubscript:indexPath.row];
     NSLog(@"Total objects: %i",[capsuleIdentifiers count]);
+    
     if([hasBeenRead isEqualToString:@"0"]){
         cell.imageView.image = [UIImage imageNamed: @"new-notification.png"];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    
+        // save messageType
+        [messageType addObject:@"new-notification"];
     }
+    
     else{
-        cell.imageView.image = [UIImage imageNamed: @"notification.png"];
+        cell.imageView.image = [UIImage imageNamed: @"notification"];
         cell.textLabel.font =  [UIFont systemFontOfSize:16.0f];
         cell.textLabel.textColor = [UIColor darkGrayColor];
+        
+        // save messageType
+        [messageType addObject:@"notification"];//insertObject:@"notification" atIndex:indexPath.row];
     }
+    
     cell.textLabel.text = [object objectForKey:@"message"];
     cell.detailTextLabel.text = [object objectForKey:@"from"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -240,10 +255,10 @@
     
     UITableViewCell *cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:indexPath];
     //UIImage * currentImage = [cell.imageView image];
-    NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
-    
-    if([messageType isEqualToString:@"new-notification.png"] || [messageType isEqualToString:@"notification.png"]){
-        [self inviteMessageView:indexPath cell:cell ofType:messageType];
+    //NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
+    NSString * mt = messageType[indexPath.row];
+    if([mt isEqualToString:@"new-notification"] || [mt isEqualToString:@"notification"]){
+        [self inviteMessageView:indexPath cell:cell ofType:mt];
     }
     
     // Navigation logic may go here. Create and push another view controller.
@@ -258,7 +273,9 @@
     return text;
 }
 
--(void) inviteMessageView: (NSIndexPath *) indexPath cell: (UITableViewCell *) cell ofType: (NSString *) messageType{
+
+
+-(void) inviteMessageView: (NSIndexPath *) indexPath cell: (UITableViewCell *) cell ofType: (NSString *) messageTypeString{
     IndividualNotificationViewController * notificationViewController = [[IndividualNotificationViewController alloc]initWithNibName:@"IndividualNotificationViewController" bundle:nil];
     [notificationViewController setTitle:@"Invite"];
     
@@ -267,7 +284,7 @@
     //NSString * from = [NSString stringWithFormat:@"From: %@",cell.detailTextLabel.text];
     NSString * title = [NSString stringWithFormat:@"Join:   %@",capsuleIdentifiers[indexPath.row]];
     NSString * messageBody = cell.textLabel.text;
-    NSLog(@"Message type: %@", messageType);
+    NSLog(@"Message type: %@", messageTypeString);
     [self.navigationController pushViewController:notificationViewController animated:YES];
     [notificationViewController passCustomData:capsuleIdentifiers[indexPath.row] forHeader1:from forHeader2:title forMessageBox:messageBody]; 
 }

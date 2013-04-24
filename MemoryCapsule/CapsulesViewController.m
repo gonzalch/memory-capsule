@@ -167,21 +167,31 @@
         NSDate *now = [[NSDate alloc] init];
         
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSMinuteCalendarUnit
                                                    fromDate:now
                                                      toDate:openDate
                                                     options:0];
         
         //NSLog(@"Difference in date components: %i/%i/%i", components.day, components.month, components.year);
         
+        if (components.day == 0) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will open soon! %i more minutes.",
+                                                                       components.minute]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
-                                                          message:[NSString stringWithFormat:  @"This capsule will open in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
-        //[self performSelector:@selector(dismissAlertViewAndReturn:) withObject:message afterDelay:3];
+        else {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will open in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
     }
     
 }

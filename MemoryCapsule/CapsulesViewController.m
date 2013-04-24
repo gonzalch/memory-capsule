@@ -159,6 +159,48 @@
         
         [imagesViewController setTitle:selectedRow];
         [self.navigationController pushViewController:imagesViewController animated:YES];
+        
+        NSDate *lockDate = [dateObject objectForKey:@"openDate"];
+        NSDate *now = [[NSDate alloc] init];
+        
+        
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSMinuteCalendarUnit
+                                                   fromDate:now
+                                                     toDate:lockDate
+                                                    options:0];
+        if (components.day == 0 && components.minute >= 0) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will close soon! %i more minutes.", components.minute
+                                                                       ]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        
+        else if (components.minute < 0) {
+            NSDateFormatter *openDateFormatter = [[NSDateFormatter alloc] init];
+            [openDateFormatter setDateStyle:NSDateFormatterLongStyle];
+            NSDate *openDate = [dateObject objectForKey:@"openDate"];
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule was opened for good on %@.", [openDateFormatter stringFromDate:openDate]
+                                                                       ]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        
+        else {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will close in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
+                                    
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
     }
     
     else {

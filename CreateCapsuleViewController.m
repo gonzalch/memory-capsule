@@ -90,6 +90,8 @@ NSDate *dateSelectedOpen;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     //[dateFormatter setDateStyle:NSDateFormatterLongStyle];
     
     newDateLock = [dateFormatter stringFromDate:dateSelectedLock];
@@ -113,6 +115,8 @@ NSDate *dateSelectedOpen;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     
     newDateOpen = [dateFormatter stringFromDate:dateSelectedOpen];
 }

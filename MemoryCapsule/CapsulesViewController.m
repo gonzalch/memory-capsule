@@ -61,29 +61,60 @@
     return 1;
 }
 
+
+// Delete capsule function
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *index = [[NSArray alloc]initWithObjects:indexPath, nil];
     
-    NSLog(@"Deleting capsule %@", [capsulesList objectAtIndex:indexPath.row]);
+    NSString *deleteName = [capsulesList objectAtIndex:indexPath.row];
+    
+    NSLog(@"Deleting capsule %@", deleteName);
     
     // delete Capsule object from database
     PFQuery *deleteCapsuleQuery = [PFQuery queryWithClassName:@"Capsule"];
-    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteCapsuleQuery whereKey:@"capsuleName" equalTo:deleteName];
     PFObject *deleteCapsule = [deleteCapsuleQuery getFirstObject];
     [deleteCapsule deleteInBackground]; // deletes capsule from database
     
-    // delete capsuleName from capsules array in CapsulesList in database
+    
+    // delete capsuleName from capsules array in users CapsulesList in database
     PFUser * user = [PFUser currentUser];
-    PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
-    [deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
-    PFObject *deleteCapsuleFromList = [deleteCapsuleFromListQuery getFirstObject];
-    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
+    PFQuery *deleteCapsuleFromUserQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [deleteCapsuleFromUserQuery whereKey:@"userName" equalTo:[user username]];
+    PFObject *deleteCapsuleFromList = [deleteCapsuleFromUserQuery getFirstObject];
+    [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
     [deleteCapsuleFromList save];
+    
+    // delete capsuleName from capsules array in everyone elses CapsulesList in database
+    PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
+    [deleteCapsuleFromListQuery whereKey:@"userName" notEqualTo:[user username]];
+    [deleteCapsuleFromListQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteCapsuleObjects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d users.", deleteCapsuleObjects.count);
+            
+            if (deleteCapsuleObjects.count > 0) {
+                for (PFObject *eachObject in deleteCapsuleObjects) {
+                    
+                    NSLog(@"%@ deleting capsule %@", [eachObject objectForKey:@"userName"], deleteName);
+                    
+                    [eachObject removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
+                    
+                    [eachObject save];
+                }
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+     
     
     // delete images that belonged to the capsule in database
     PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
-    [deleteImagesQuery whereKey:@"capsuleName" equalTo:[capsulesList objectAtIndex:indexPath.row]];
+    [deleteImagesQuery whereKey:@"capsuleName" equalTo:deleteName];
     [deleteImagesQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteImagesArray, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -105,8 +136,8 @@
     // delete capsule name from tableview datasource array
     [capsulesList removeObjectAtIndex:indexPath.row];
     
-    // deletes capsule cell from tableview
-    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone]; 
+    // delete capsule cell from tableview
+    [self.tableView deleteRowsAtIndexPaths:index withRowAnimation: UITableViewRowAnimationNone];
     [self.tableView reloadData];
 }
 
@@ -128,6 +159,48 @@
         
         [imagesViewController setTitle:selectedRow];
         [self.navigationController pushViewController:imagesViewController animated:YES];
+        
+        NSDate *lockDate = [dateObject objectForKey:@"openDate"];
+        NSDate *now = [[NSDate alloc] init];
+        
+        
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSMinuteCalendarUnit
+                                                   fromDate:now
+                                                     toDate:lockDate
+                                                    options:0];
+        if (components.day == 0 && components.minute >= 0) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will close soon! %i more minutes.", components.minute
+                                                                       ]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        
+        else if (components.minute < 0) {
+            NSDateFormatter *openDateFormatter = [[NSDateFormatter alloc] init];
+            [openDateFormatter setDateStyle:NSDateFormatterLongStyle];
+            NSDate *openDate = [dateObject objectForKey:@"openDate"];
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule was opened for good on %@.", [openDateFormatter stringFromDate:openDate]
+                                                                       ]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        
+        else {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will close in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
+                                    
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
     }
     
     else {
@@ -136,21 +209,31 @@
         NSDate *now = [[NSDate alloc] init];
         
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSMinuteCalendarUnit
                                                    fromDate:now
                                                      toDate:openDate
                                                     options:0];
         
         //NSLog(@"Difference in date components: %i/%i/%i", components.day, components.month, components.year);
         
+        if (components.day == 0) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will open soon! %i more minutes.",
+                                                                       components.minute]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
-                                                          message:[NSString stringWithFormat:  @"This capsule will open in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
-        //[self performSelector:@selector(dismissAlertViewAndReturn:) withObject:message afterDelay:3];
+        else {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat: @"%@ is locked", capsulesList[indexPath.row]]
+                                                              message:[NSString stringWithFormat:  @"This capsule will open in %i day(s), %i month(s), and %i year(s).", components.day, components.month, components.year]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
     }
     
 }
@@ -166,29 +249,32 @@
         
     capsulesList = [[reqQuery valueForKey:@"capsules"] objectAtIndex: 0];
     
-    for (NSString *eachCapsule in capsulesList) {
-        
-        PFQuery *dateQuery = [PFQuery queryWithClassName:@"Capsule"];
-        [dateQuery whereKey:@"capsuleName" equalTo:eachCapsule];
-        PFObject *dateObject = [dateQuery getFirstObject];
-        
-        NSDate *lockDate = [dateObject valueForKey:@"lockDate"];
-        NSDate *openDate = [dateObject valueForKey:@"openDate"];
-
-        
-        if ([lockDate timeIntervalSinceNow] < 1 && [openDate timeIntervalSinceNow] > 0) {
-            //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
+    if (capsulesList.count > 0) {
+        for (NSString *eachCapsule in capsulesList) {
             
-            [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
-            [dateObject save];
-        }
-        
-        else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
-            //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
-            [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
-            [dateObject save];
+            PFQuery *dateQuery = [PFQuery queryWithClassName:@"Capsule"];
+            [dateQuery whereKey:@"capsuleName" equalTo:eachCapsule];
+            PFObject *dateObject = [dateQuery getFirstObject];
+            
+            NSDate *lockDate = [dateObject valueForKey:@"lockDate"];
+            NSDate *openDate = [dateObject valueForKey:@"openDate"];
+            
+            
+            if ([lockDate timeIntervalSinceNow] < 1 && [openDate timeIntervalSinceNow] > 0) {
+                //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
+                
+                [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
+                [dateObject save];
+            }
+            
+            else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
+                //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
+                [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
+                [dateObject save];
+            }
         }
     }
+    
 
     return [[[reqQuery valueForKey:@"capsules"] objectAtIndex:0] count];
     

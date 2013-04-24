@@ -265,7 +265,6 @@
     
 }
 
-
 #pragma mark - Helper functions
 
 -(NSString *) capitalizeFirstLetter:(NSString *)text{
@@ -288,7 +287,5 @@
     [self.navigationController pushViewController:notificationViewController animated:YES];
     [notificationViewController passCustomData:capsuleIdentifiers[indexPath.row] forHeader1:from forHeader2:title forMessageBox:messageBody]; 
 }
-
-
 
 @end

@@ -28,6 +28,19 @@
     return self;
 }
 
+- (id)initWithObjectAndLabels:(PFObject *) aObject title: (NSString *) title andSubtitle: (NSString *) subtitle{
+    
+    self = [super init];
+    if (self) {
+        _object = aObject;
+        _title = title;
+        _subtitle = subtitle;
+        
+        PFGeoPoint *geoPoint = self.object[@"location"];
+        [self setGeoPoint:geoPoint];
+    }
+    return self;
+}
 
 #pragma mark - MKAnnotation
 
@@ -64,9 +77,13 @@
         numberFormatter.maximumFractionDigits = 3;
     }
     
-    _title = [dateFormatter stringFromDate:self.object.updatedAt];
-    _subtitle = [NSString stringWithFormat:@"%@, %@", [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.latitude]],
-                 [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.longitude]]];
+    
+    
+    
+    
+    //_title = [dateFormatter stringFromDate:self.object.updatedAt];
+    //_subtitle = [NSString stringWithFormat:@"%@, %@", [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.latitude]],
+    //             [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.longitude]]];
 }
 
 @end

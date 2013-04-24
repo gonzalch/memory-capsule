@@ -230,16 +230,14 @@
     // When picture is touched, open a viewcontroller with the image
     PFObject *theObject = (PFObject *)[allImages objectAtIndex:[sender tag]];
     PFFile *theImage = [theObject objectForKey:@"imageFile"];
-    
     NSData *imageData;
     imageData = [theImage getData];
     UIImage *selectedPhoto = [UIImage imageWithData:imageData];
     ImageDetailViewController *idvc = [[ImageDetailViewController alloc] init];
-    
     idvc.selectedImage = selectedPhoto;
     idvc.imageName = [theObject objectId];
     idvc.ptrToDelUser = self;
-    
+    [idvc setTitle:capsuleName];
     [self.navigationController pushViewController:idvc animated:YES];
 }
 
@@ -261,6 +259,8 @@
         
         // Delegate is self
         imagePicker.delegate = self;
+        
+        [imagePicker setTitle: capsuleName];
         
         // Show image picker
         [self.navigationController pushViewController:imagePicker animated:YES];

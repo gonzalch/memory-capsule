@@ -73,6 +73,9 @@
 		EA683A3016EFF3EB000BF949 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683A2F16EFF3EB000BF949 /* SystemConfiguration.framework */; };
 		EA683A3316F004C2000BF949 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA683A3216F004C2000BF949 /* LoginViewController.m */; };
 		EA683ABE16F657DE000BF949 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA683ABD16F657DE000BF949 /* HomeViewController.m */; };
+		EA6988F21727956A0037676F /* add-comment.png in Resources */ = {isa = PBXBuildFile; fileRef = EA6988F11727956A0037676F /* add-comment.png */; };
+		EA6988FB17279AFD0037676F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6988F917279AFD0037676F /* CommentsViewController.m */; };
+		EA6988FC17279AFD0037676F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6988FA17279AFD0037676F /* CommentsViewController.xib */; };
 		EA735563171603CD00C1FDC9 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA735562171603CD00C1FDC9 /* git.txt */; };
 		EA73557417178E2500C1FDC9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = EA73557217178E2500C1FDC9 /* message.png */; };
 		EA73557517178E2500C1FDC9 /* new-message.png in Resources */ = {isa = PBXBuildFile; fileRef = EA73557317178E2500C1FDC9 /* new-message.png */; };
@@ -215,6 +218,10 @@
 		EA683A3216F004C2000BF949 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = MemoryCapsule/LoginViewController.m; sourceTree = "<group>"; };
 		EA683ABC16F657DE000BF949 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = MemoryCapsule/HomeViewController.h; sourceTree = "<group>"; };
 		EA683ABD16F657DE000BF949 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = MemoryCapsule/HomeViewController.m; sourceTree = "<group>"; };
+		EA6988F11727956A0037676F /* add-comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-comment.png"; sourceTree = "<group>"; };
+		EA6988F817279AFD0037676F /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		EA6988F917279AFD0037676F /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		EA6988FA17279AFD0037676F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		EA735562171603CD00C1FDC9 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
 		EA73557217178E2500C1FDC9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = "Gimp Files/message.png"; sourceTree = "<group>"; };
 		EA73557317178E2500C1FDC9 /* new-message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-message.png"; path = "Gimp Files/new-message.png"; sourceTree = "<group>"; };
@@ -425,6 +432,9 @@
 				83827BDF1714D94900739A87 /* InviteFriendsToCapsuleViewController.h */,
 				83827BE01714D94900739A87 /* InviteFriendsToCapsuleViewController.m */,
 				83827BE11714D94900739A87 /* InviteFriendsToCapsuleViewController.xib */,
+				EA6988F817279AFD0037676F /* CommentsViewController.h */,
+				EA6988F917279AFD0037676F /* CommentsViewController.m */,
+				EA6988FA17279AFD0037676F /* CommentsViewController.xib */,
 			);
 			name = Capsule;
 			sourceTree = "<group>";
@@ -471,6 +481,7 @@
 		EABE1B8F16FA511A008DAE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EA6988F11727956A0037676F /* add-comment.png */,
 				EA240DC81724A1BB00CBA842 /* inbox-document-new.png */,
 				EA240DC617249B5300CBA842 /* alert.png */,
 				EABE1B9016FA511A008DAE00 /* add-friend.png */,
@@ -696,6 +707,8 @@
 				EA240DC717249B5300CBA842 /* alert.png in Resources */,
 				EA240DC91724A1BB00CBA842 /* inbox-document-new.png in Resources */,
 				EA240DDF1724AFE700CBA842 /* CapsuleMapViewController.xib in Resources */,
+				EA6988F21727956A0037676F /* add-comment.png in Resources */,
+				EA6988FC17279AFD0037676F /* CommentsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +737,7 @@
 				EA240DD71724AF0800CBA842 /* DetailViewController.m in Sources */,
 				EA240DDE1724AFE700CBA842 /* CapsuleMapViewController.m in Sources */,
 				EA240DE21724C48B00CBA842 /* GeoPointAnnotation.m in Sources */,
+				EA6988FB17279AFD0037676F /* CommentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

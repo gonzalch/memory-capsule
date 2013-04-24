@@ -61,6 +61,8 @@
     return 1;
 }
 
+
+// Delete capsule function
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *index = [[NSArray alloc]initWithObjects:indexPath, nil];
@@ -73,13 +75,35 @@
     PFObject *deleteCapsule = [deleteCapsuleQuery getFirstObject];
     [deleteCapsule deleteInBackground]; // deletes capsule from database
     
+    /*
     // delete capsuleName from capsules array in CapsulesList in database
-    PFUser * user = [PFUser currentUser];
+    //PFUser * user = [PFUser currentUser];
     PFQuery *deleteCapsuleFromListQuery = [PFQuery queryWithClassName:@"CapsulesList"];
-    [deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
+    //[deleteCapsuleFromListQuery whereKey:@"userName" equalTo:[user username]];
+    [deleteCapsuleFromListQuery findObjectsInBackgroundWithBlock:^(NSArray *deleteCapsuleObjects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d users.", deleteCapsuleObjects.count);
+            
+            if (deleteCapsuleObjects.count > 0) {
+                for (PFObject *eachObject in deleteCapsuleObjects) {
+                    [eachObject removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
+                }
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+     */
+
+    /*
     PFObject *deleteCapsuleFromList = [deleteCapsuleFromListQuery getFirstObject];
     [deleteCapsuleFromList removeObjectsInArray:[NSArray arrayWithObjects:[capsulesList objectAtIndex:indexPath.row], nil] forKey:@"capsules"];
     [deleteCapsuleFromList save];
+    */
+    //PFQuery *deleteCapsuleFromEveryone = [PFQuery queryWithClassName:<#(NSString *)#>]
     
     // delete images that belonged to the capsule in database
     PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];

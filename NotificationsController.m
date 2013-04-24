@@ -238,18 +238,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
+    
     UITableViewCell *cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:indexPath];
     //UIImage * currentImage = [cell.imageView image];
     NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
     
-    if([messageType isEqualToString:@"new-notification.png"] || [messageType isEqualToString:@"notification.png"]){
+    NSLog(@"didSelectRowAtIndexPath:%i with messageType:%@", indexPath.row, messageType);
+    
+    //if([messageType isEqualToString:@"new-notification.png"] || [messageType isEqualToString:@"notification.png"]){
         [self inviteMessageView:indexPath cell:cell ofType:messageType];
-    }
+   // }
     
     // Navigation logic may go here. Create and push another view controller.
     
 }
-
 
 #pragma mark - Helper functions
 
@@ -271,7 +274,5 @@
     [self.navigationController pushViewController:notificationViewController animated:YES];
     [notificationViewController passCustomData:capsuleIdentifiers[indexPath.row] forHeader1:from forHeader2:title forMessageBox:messageBody]; 
 }
-
-
 
 @end

@@ -253,23 +253,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
-    
     UITableViewCell *cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:indexPath];
     //UIImage * currentImage = [cell.imageView image];
-<<<<<<< HEAD
-    NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
-    
-    if([messageType isEqualToString:@"new-notification.png"] || [messageType isEqualToString:@"notification.png"]){
-        [self inviteMessageView:indexPath cell:cell ofType:messageType];
-    }
-=======
     //NSString * messageType = [NSString stringWithFormat:@"%@",[cell.imageView.image accessibilityIdentifier]];
     NSString * mt = messageType[indexPath.row];
     if([mt isEqualToString:@"new-notification"] || [mt isEqualToString:@"notification"]){
         [self inviteMessageView:indexPath cell:cell ofType:mt];
     }
->>>>>>> d00faeba7c7d65de74845347a8e9703d7cdfcb5a
     
     // Navigation logic may go here. Create and push another view controller.
     

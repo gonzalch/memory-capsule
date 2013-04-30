@@ -268,36 +268,22 @@
     else{
         // Device has no camera
         UIImage *image;
-        int r = arc4random() % 9;
+        int r = arc4random() % 4;
         switch (r) {
-            case 0:
-                image = [UIImage imageNamed:@"default.jpg"];
-                break;
             case 1:
-                image = [UIImage imageNamed:@"default2.jpg"];
+                image = [UIImage imageNamed:@"nye5.jpeg"];
                 break;
             case 2:
-                image = [UIImage imageNamed:@"default3.jpg"];
+                image = [UIImage imageNamed:@"nye4.jpeg"];
                 break;
             case 3:
-                image = [UIImage imageNamed:@"default4.jpg"];
+                image = [UIImage imageNamed:@"nye3.jpeg"];
                 break;
             case 4:
-                image = [UIImage imageNamed:@"default5.jpg"];
+                image = [UIImage imageNamed:@"nye2.jpeg"];
                 break;
-            case 5:
-                image = [UIImage imageNamed:@"default6.jpg"];
-                break;
-            case 6:
-                image = [UIImage imageNamed:@"default7.jpg"];
-                break;
-            case 7:
-                image = [UIImage imageNamed:@"default8.jpg"];
-                break;
-            case 8:
-                image = [UIImage imageNamed:@"default9.jpg"];
-                break;
-            default:
+            case 0:
+                image = [UIImage imageNamed:@"nye1.jpeg"];
                 break;
         }
         

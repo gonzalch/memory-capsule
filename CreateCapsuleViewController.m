@@ -160,7 +160,7 @@ NSDate *dateSelectedOpen;
     PFObject *newCapsule = [query getFirstObject];
     [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:newCapsuleName, nil] forKey:@"capsules"];
     [newCapsule setObject:[user username] forKey:@"userName"];
-    [newCapsule save];
+    [newCapsule saveInBackground];
     
     //Convert our latlong into a pfpoint
     PFGeoPoint *pfCapsuleLocation = [PFGeoPoint geoPointWithLatitude:newCapsuleLocation.latitude
@@ -174,7 +174,7 @@ NSDate *dateSelectedOpen;
     [newCapsuleObject setObject:dateSelectedLock forKey:@"lockDate"];
     [newCapsuleObject setObject:dateSelectedOpen forKey:@"openDate"];
     [newCapsuleObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
-    [newCapsuleObject save];
+    [newCapsuleObject saveInBackground];
      
     
     [self.navigationController popViewControllerAnimated:YES];

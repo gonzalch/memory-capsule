@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "ImageDetailViewController.h"
 
 @interface CommentsViewController : UIViewController <UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *commentTextView;
 
 -(void) setCapsuleValues: (NSString *) capsuleName imageID: (NSString*)ID;
+
+-(void) linkToParentView: (ViewController *) parent;
 
 @end

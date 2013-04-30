@@ -49,7 +49,7 @@
         [friendsQuery whereKey:@"userName" equalTo:[user username]];
         PFObject * friendsList = [friendsQuery getFirstObject];
         [friendsList addUniqueObjectsFromArray:[NSArray arrayWithObjects:newFriendName,nil] forKey:@"friends"];
-        [friendsList save];
+        [friendsList saveInBackground];
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Done!"
                                                           message:[NSString stringWithFormat:  @"You have successfully added '%@' to your list of friends.",newFriendName]
                                                          delegate:nil

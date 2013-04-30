@@ -101,7 +101,7 @@
                     
                     [eachObject removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
                     
-                    [eachObject save];
+                    [eachObject saveInBackground];
                 }
             }
             
@@ -264,13 +264,13 @@
                 //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
                 
                 [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
-                [dateObject save];
+                [dateObject saveInBackground];
             }
             
             else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
                 //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
                 [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
-                [dateObject save];
+                [dateObject saveInBackground];
             }
         }
     }

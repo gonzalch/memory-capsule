@@ -27,23 +27,17 @@
     [super viewDidLoad];
     
     
-    
     //Add logout button
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logout"style:UIBarButtonItemStyleDone target:self action:@selector(logoutButtonPressed:)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    
-    //PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    //[testObject setObject:@"bar" forKey:@"foo"];
-    //[testObject save];
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
 
 
 
 -(void) viewDidAppear:(BOOL)animated
-{
+{    
     [super viewDidAppear:animated];
 
     // Set userName label
@@ -58,7 +52,7 @@
     if(![PFUser currentUser]){
         // Login
         LoginViewController * login = [[LoginViewController alloc ]init];
-        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
         login.delegate = self;
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:NULL];

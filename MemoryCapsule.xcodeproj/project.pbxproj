@@ -81,6 +81,11 @@
 		EA73557517178E2500C1FDC9 /* new-message.png in Resources */ = {isa = PBXBuildFile; fileRef = EA73557317178E2500C1FDC9 /* new-message.png */; };
 		EA73557817178EBC00C1FDC9 /* new-notification.png in Resources */ = {isa = PBXBuildFile; fileRef = EA73557617178EBC00C1FDC9 /* new-notification.png */; };
 		EA73557917178EBC00C1FDC9 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = EA73557717178EBC00C1FDC9 /* notification.png */; };
+		EA93E1DA1728C2B300828FC0 /* nye1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA93E1D51728C2B300828FC0 /* nye1.jpeg */; };
+		EA93E1DB1728C2B300828FC0 /* nye2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA93E1D61728C2B300828FC0 /* nye2.jpeg */; };
+		EA93E1DC1728C2B300828FC0 /* nye3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA93E1D71728C2B300828FC0 /* nye3.jpeg */; };
+		EA93E1DD1728C2B300828FC0 /* nye4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA93E1D81728C2B300828FC0 /* nye4.jpeg */; };
+		EA93E1DE1728C2B300828FC0 /* nye5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EA93E1D91728C2B300828FC0 /* nye5.jpeg */; };
 		EAA18D8B16F82FB00011B050 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA18D8A16F82FAF0011B050 /* FriendsViewController.m */; };
 		EAA18D9F16FA37C90011B050 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA18D9D16FA37C90011B050 /* InviteViewController.m */; };
 		EAA18DA016FA37C90011B050 /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA18D9E16FA37C90011B050 /* InviteViewController.xib */; };
@@ -227,6 +232,11 @@
 		EA73557317178E2500C1FDC9 /* new-message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-message.png"; path = "Gimp Files/new-message.png"; sourceTree = "<group>"; };
 		EA73557617178EBC00C1FDC9 /* new-notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-notification.png"; sourceTree = "<group>"; };
 		EA73557717178EBC00C1FDC9 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		EA93E1D51728C2B300828FC0 /* nye1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nye1.jpeg; sourceTree = "<group>"; };
+		EA93E1D61728C2B300828FC0 /* nye2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nye2.jpeg; sourceTree = "<group>"; };
+		EA93E1D71728C2B300828FC0 /* nye3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nye3.jpeg; sourceTree = "<group>"; };
+		EA93E1D81728C2B300828FC0 /* nye4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nye4.jpeg; sourceTree = "<group>"; };
+		EA93E1D91728C2B300828FC0 /* nye5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nye5.jpeg; sourceTree = "<group>"; };
 		EAA18D8916F82FAF0011B050 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = MemoryCapsule/FriendsViewController.h; sourceTree = "<group>"; };
 		EAA18D8A16F82FAF0011B050 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = MemoryCapsule/FriendsViewController.m; sourceTree = "<group>"; };
 		EAA18D9C16FA37C90011B050 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteViewController.h; path = MemoryCapsule/InviteViewController.h; sourceTree = "<group>"; };
@@ -326,7 +336,7 @@
 		EA36396B16E84F3900970068 = {
 			isa = PBXGroup;
 			children = (
-				EA240DD91724AF5700CBA842 /* MapKit.framework */,
+				EA93E1D41728C2A000828FC0 /* screenshots */,
 				EABE1B8816FA4E73008DAE00 /* Documentation */,
 				EA683A9516F1961D000BF949 /* Capsule */,
 				EA683A9616F19624000BF949 /* Friends */,
@@ -352,6 +362,7 @@
 		EA36397616E84F3900970068 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA240DD91724AF5700CBA842 /* MapKit.framework */,
 				EABE1BF216FA5CF5008DAE00 /* MessageUI.framework */,
 				EA21090716FA47CB0074B34E /* Parse.framework */,
 				EA683A2F16EFF3EB000BF949 /* SystemConfiguration.framework */,
@@ -464,6 +475,18 @@
 				EA29A33A17208E1100C73114 /* NotificationsController.m */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		EA93E1D41728C2A000828FC0 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				EA93E1D51728C2B300828FC0 /* nye1.jpeg */,
+				EA93E1D61728C2B300828FC0 /* nye2.jpeg */,
+				EA93E1D71728C2B300828FC0 /* nye3.jpeg */,
+				EA93E1D81728C2B300828FC0 /* nye4.jpeg */,
+				EA93E1D91728C2B300828FC0 /* nye5.jpeg */,
+			);
+			name = screenshots;
 			sourceTree = "<group>";
 		};
 		EABE1B8816FA4E73008DAE00 /* Documentation */ = {
@@ -709,6 +732,11 @@
 				EA240DDF1724AFE700CBA842 /* CapsuleMapViewController.xib in Resources */,
 				EA6988F21727956A0037676F /* add-comment.png in Resources */,
 				EA6988FC17279AFD0037676F /* CommentsViewController.xib in Resources */,
+				EA93E1DA1728C2B300828FC0 /* nye1.jpeg in Resources */,
+				EA93E1DB1728C2B300828FC0 /* nye2.jpeg in Resources */,
+				EA93E1DC1728C2B300828FC0 /* nye3.jpeg in Resources */,
+				EA93E1DD1728C2B300828FC0 /* nye4.jpeg in Resources */,
+				EA93E1DE1728C2B300828FC0 /* nye5.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

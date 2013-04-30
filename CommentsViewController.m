@@ -11,6 +11,7 @@
 @interface CommentsViewController (){
     PFUser * user;
     NSString * capsule, *imageID;
+    ImageDetailViewController * parentViewController;
 }
 
 @end
@@ -66,21 +67,37 @@
     [newComment setObject: imageID forKey: @"imageID"];
     [newComment save];
     
-    NSLog(@"new comment %@", newComment);
-    //[newComment save];
+    [parentViewController.commentsArray addObject:newComment];
+     NSLog(@"items: %i",[parentViewController.commentsArray count]);
     
-    //[self.view setNeedsDisplay];
+    [self performSelector:@selector(delayedReloadData) withObject:nil afterDelay:1.0];
+
+    
+}
+
+
+-(void)delayedReloadData{
+    
+    NSLog(@"delay reload data called");
+    //[commentsTable reloadData];
     
     [self dismissViewControllerAnimated:YES completion:^{
         [self.view removeFromSuperview];
     }];
-    
 }
 
 
 -(void) setCapsuleValues: (NSString *) capsuleName imageID: (NSString *) ID{
     capsule = capsuleName;
     imageID = ID;
+}
+
+
+-(void) linkToParentView: (ImageDetailViewController *) parent{
+    NSLog(@"LinkToParentTableView called");
+    parentViewController = parent;
+    parentViewController.title = @"test";
+    NSLog(@"items: %i",[parentViewController.commentsArray count]);
 }
 
 @end

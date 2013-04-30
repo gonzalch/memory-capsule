@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface ImageDetailViewController (){
-    NSArray * commentsArray;
     PFQuery * commentsQuery;
     PFUser * user;
     int commentRows;
@@ -24,6 +23,8 @@
 @synthesize deleteImageButton;
 @synthesize imageName;
 @synthesize capsuleName;
+@synthesize commentsTableView;
+@synthesize commentsArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,11 +40,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    NSLog(@"viewWillAppear called");
     
     // Yes, this is a hack
     capsuleName = self.navigationItem.title;
-    
-    NSLog(@"The capsule name: %@",capsuleName);
     
     // Query comments database
     user = [PFUser currentUser];
@@ -52,9 +52,8 @@
     [commentsQuery whereKey:@"imageID" equalTo:imageName];
     [commentsQuery whereKey:@"capsuleName" equalTo:capsuleName];
     //NSLog(@"%i comments found",[commentsQuery countObjects]);
-    commentRows = [commentsQuery countObjects];
-    commentsArray = [[NSArray alloc] initWithArray:[commentsQuery findObjects]];
-    //commentsArray = [commentsQuery findObjects];
+    //commentRows = [commentsQuery countObjects];
+    //commentsArray = [[NSMutableArray alloc] initWithArray:[commentsQuery findObjects]];
     
 }
 
@@ -127,6 +126,7 @@
     //Our cell is an object of the current view
     currentCell = [self.commentsTableView dequeueReusableCellWithIdentifier:@"testCell"];
     //lazy instantiation (at the last moment)
+    
     if(currentCell == nil){
         currentCell = [[UITableViewCell alloc]initWithStyle: UITableViewCellStyleSubtitle  reuseIdentifier:@"testCell"];
         currentCell.imageView.image = [UIImage imageNamed: @"friend.png"];
@@ -134,6 +134,7 @@
     }
     
     NSObject * currentComment = commentsArray[indexPath.row];
+    NSLog(@"current %@", commentsArray[indexPath.row]);
     //Depending on our current section, populate the cells
     currentCell.textLabel.text = [currentComment valueForKey:@"comment"];
     currentCell.detailTextLabel.text =  [currentComment valueForKey:@"by"];
@@ -145,15 +146,26 @@
 - (IBAction)addCommentButtonPressed:(id)sender {
     NSLog(@"Add comment pressed");
     
-    
-    
-    CommentsViewController * sampleView = [[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
+    CommentsViewController * commentModalView = [[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
     //UIViewController *sampleView = [[UIViewController alloc] init];
-    [sampleView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
-    [sampleView setCapsuleValues:capsuleName imageID:imageName];
-    [self presentViewController:sampleView animated:YES completion:nil];
+    [commentModalView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [commentModalView setCapsuleValues:capsuleName imageID:imageName];
+    [commentModalView linkToParentView:self];
+    [self presentViewController:commentModalView animated:YES completion:nil];
     //[self  presentedViewControllerler:sampleView animated:YES];*/
     
+}
+
+- (IBAction)reload:(id)sender {
+    NSLog(@"reload data called");
+    
+    [self.view setNeedsDisplay];
+    //[self.commentsTableView reloadData];
+    ///NSInteger cellCount = [self.commentsTableView numberOfRowsInSection:0];
+    [self.commentsTableView beginUpdates];
+    [self.commentsTableView reloadData];
+    //[self.commentsTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    [self.commentsTableView endUpdates];
 }
 
 

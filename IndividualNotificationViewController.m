@@ -59,7 +59,7 @@
     PFObject * newCapsule = [addSelfToCapsuleQuery getFirstObject];
     [newCapsule addUniqueObjectsFromArray:[NSArray arrayWithObjects:capsuleName, nil] forKey:@"capsules"];
     [newCapsule setObject:[user username] forKey:@"userName"];
-    [newCapsule save];
+    [newCapsule saveInBackground];
     
     // Confirmation message
     UIAlertView *alertMessage = [[UIAlertView alloc] initWithTitle:@"Done!"
@@ -106,7 +106,7 @@
     if([query countObjects] == 1){
         PFObject * currentInvitation = [query getFirstObject];
         [currentInvitation  setObject:[NSNumber numberWithBool:TRUE] forKey:@"read"];
-        [currentInvitation save];
+        [currentInvitation saveInBackground];
     }
     
     else

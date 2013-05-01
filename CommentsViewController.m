@@ -67,8 +67,8 @@
     [newComment setObject: imageID forKey: @"imageID"];
     [newComment save];
     
-    [parentViewController.commentsArray addObject:newComment];
-     NSLog(@"items: %i",[parentViewController.commentsArray count]);
+    //[parentViewController.commentsArray addObject:newComment];
+    // NSLog(@"items: %i",[parentViewController.commentsArray count]);
     
     [self performSelector:@selector(delayedReloadData) withObject:nil afterDelay:1.0];
 
@@ -97,7 +97,7 @@
     NSLog(@"LinkToParentTableView called");
     parentViewController = parent;
     parentViewController.title = @"test";
-    NSLog(@"items: %i",[parentViewController.commentsArray count]);
+    //NSLog(@"items: %i",[parentViewController.commentsArray count]);
 }
 
 @end

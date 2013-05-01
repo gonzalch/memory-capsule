@@ -11,13 +11,12 @@
 
 @protocol SendBackDelegate;
 
-@interface ImageDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface ImageDetailViewController : ViewController <UITableViewDelegate>{
 }
 @property (strong, nonatomic) IBOutlet UIButton *deleteImageButton;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) UIImage *selectedImage;
 @property (nonatomic, strong) NSString *imageName;
-@property (nonatomic, strong) NSMutableArray * commentsArray;
 @property (strong, nonatomic) IBOutlet UITableView *commentsTableView;
 @property (assign)  id<SendBackDelegate> ptrToDelUser;
 @property (nonatomic, strong) NSString * capsuleName;

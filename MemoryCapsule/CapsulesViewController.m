@@ -101,7 +101,7 @@
                     
                     [eachObject removeObjectsInArray:[NSArray arrayWithObjects:deleteName, nil] forKey:@"capsules"];
                     
-                    [eachObject saveInBackground];
+                    [eachObject save];
                 }
             }
             
@@ -110,7 +110,7 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-     
+    
     
     // delete images that belonged to the capsule in database
     PFQuery *deleteImagesQuery  = [PFQuery queryWithClassName:@"UserPhoto"];
@@ -246,7 +246,7 @@
     [query whereKey:@"userName" equalTo: [user username]];
     NSArray * reqQuery = [query findObjects];
     
-        
+    
     capsulesList = [[reqQuery valueForKey:@"capsules"] objectAtIndex: 0];
     
     if (capsulesList.count > 0) {
@@ -264,18 +264,18 @@
                 //NSLog(@"Capsule %@ should be locked, %f", eachCapsule, [lockDate timeIntervalSinceNow]);
                 
                 [dateObject setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
-                [dateObject saveInBackground];
+                [dateObject save];
             }
             
             else if ([openDate timeIntervalSinceNow] < 1 || [lockDate timeIntervalSinceNow] > 0) {
                 //NSLog(@"Capsule %@ should be open, %f", eachCapsule,  [openDate timeIntervalSinceNow]);
                 [dateObject setObject:[NSNumber numberWithBool:YES] forKey:@"open"];
-                [dateObject saveInBackground];
+                [dateObject save];
             }
         }
     }
     
-
+    
     return [[[reqQuery valueForKey:@"capsules"] objectAtIndex:0] count];
     
 }

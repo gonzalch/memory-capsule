@@ -107,7 +107,7 @@
     switch(section){
         case 0: return [viewList count]; break;
         case 1: return [addList count]; break;
-        default: NSLog(@"Error"); return 999;
+        default: NSLog(@"Error"); return 0;
     }
 }
 
@@ -158,37 +158,42 @@
             break;
     }
     
-    //Capsule cell
+    /*Capsule cell NOTE: While these featurea are working, more needs to be done to clean up other bugs
+     
     if([currentCell.textLabel.text isEqualToString:@"Capsules"]){
         PFQuery * capsules = [PFQuery queryWithClassName:@"Capsule"];
         [capsules whereKey:@"createdBy"equalTo:user.username];
-        currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i",[capsules countObjects]];
-        //currentCell.accessoryView =  [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"rotate.png" ]];
+        if(capsules != nil){
+            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i",[capsules countObjects]];
+        }
     }
     
     //Friends cell
     else if([currentCell.textLabel.text isEqualToString:@"Friends"]){
         PFQuery *query = [PFQuery queryWithClassName:@"FriendsList"];
         [query whereKey:@"userName" equalTo: [user username]];
-        NSArray * reqQuery = [query findObjects];
-        //friendsList = [[reqQuery valueForKey:@"friends"] objectAtIndex: 0];
-        int friendsCount = [[[reqQuery valueForKey:@"friends"] objectAtIndex:0] count];
-        currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i", friendsCount];
+        if(query != nil){
+            NSArray * reqQuery = [query findObjects];
+            //friendsList = [[reqQuery valueForKey:@"friends"] objectAtIndex: 0];
+            int friendsCount = [[[reqQuery valueForKey:@"friends"] objectAtIndex:0] count];
+            currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i", friendsCount];
+        }
     }
     
     
-    
     //Notifications cell
-    if([currentCell.textLabel.text isEqualToString:@"Notifications"]){
+    else if([currentCell.textLabel.text isEqualToString:@"Notifications"]){
         PFQuery * unreadMessagesQuery = [PFQuery queryWithClassName:@"Notifications"];
         [unreadMessagesQuery whereKey:@"to" equalTo:user.username];
-        //[unreadMessagesQuery whereKey:@"read" equalTo:[NSNumber numberWithBool:NO]];
         int unreadMessagesTally = [unreadMessagesQuery countObjects];
         if(unreadMessagesTally > 0){
             currentCell.imageView.image = [UIImage imageNamed:@"inbox-document-new.png"];
         }
         currentCell.detailTextLabel.text = [NSString stringWithFormat:@"%i",unreadMessagesTally];
         
+    }*/
+    if([currentCell.textLabel.text isEqualToString:@"Map" ]){
+        currentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return currentCell;

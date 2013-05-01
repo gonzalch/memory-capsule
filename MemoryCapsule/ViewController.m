@@ -52,7 +52,7 @@
     if(![PFUser currentUser]){
         // Login
         LoginViewController * login = [[LoginViewController alloc ]init];
-        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton ;
         login.delegate = self;
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:NULL];
@@ -65,7 +65,7 @@
     NSLog(@"logout is pressed!");
     // Login
     LoginViewController * login = [[LoginViewController alloc ]init];
-    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton ;
     login.delegate = self;
     login.signUpController.delegate = self;
     [self presentViewController:login animated:YES completion:NULL];

@@ -148,6 +148,24 @@ NSDate *dateSelectedOpen;
     return YES;
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"Sender %i entered %@", textField.tag, textField.text);
+    switch(textField.tag){
+        case 0:
+            newCapsuleName = textField.text;
+            break;
+        case 1:
+            [self computeLatLongForGivenLocation:textField.text];
+            break;
+        default:
+            break;
+    }
+    
+    [textField resignFirstResponder];
+    
+}
+
 -  (IBAction)createButtonPressed:(id)sender
 {
     // bug note: MAKE SURE YOU CLICK RETURN ON UITEXTFIELD OR ELSE QUERY WILL CRASH APP 
